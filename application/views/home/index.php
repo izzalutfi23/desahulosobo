@@ -23,6 +23,9 @@
 	<link rel="stylesheet" href="<?=base_url()?>assets/home/css/slick.css">
 	<link rel="stylesheet" href="<?=base_url()?>assets/home/css/nice-select.css">
 	<link rel="stylesheet" href="<?=base_url()?>assets/home/css/style.css">
+
+
+	<script type="text/javascript" src="<?=base_url()?>assets/home/js/Chart.js"></script>
 </head>
 
 <body>
@@ -50,8 +53,8 @@
 							<div class="row d-flex justify-content-between align-items-center">
 								<div class="header-info-left">
 									<ul>
-										<li><img src="assets/img/icon/header_icon1.png" alt="">34ºc, Sunny </li>
-										<li><img src="assets/img/icon/header_icon1.png" alt="">Tuesday, 18th June, 2019
+										<li><img src="assets/img/icon/header_icon1.png" alt="">34ºc, Cerah </li>
+										<li><img src="assets/img/icon/header_icon1.png" alt=""><?=date('D, d M Y')?>
 										</li>
 									</ul>
 								</div>
@@ -59,7 +62,7 @@
 									<ul class="header-social">
 										<li><a href="#"><i class="fab fa-twitter"></i></a></li>
 										<li><a href="#"><i class="fab fa-instagram"></i></a></li>
-										<li> <a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+										<li> <a href="#"><i class="fab fa-facebook"></i></a></li>
 									</ul>
 								</div>
 							</div>
@@ -218,64 +221,18 @@
 						<!-- Riht content -->
 						<div class="col-lg-4">
 							<div class="blog_right_sidebar">
-								<aside class="single_sidebar_widget search_widget">
-									<form action="#">
-										<div class="form-group">
-											<div class="input-group mb-3">
-												<input type="text" class="form-control" placeholder='Search Keyword'
-													onfocus="this.placeholder = ''"
-													onblur="this.placeholder = 'Search Keyword'">
-												<div class="input-group-append">
-													<button class="btns" type="button"><i
-															class="ti-search"></i></button>
-												</div>
-											</div>
-										</div>
-										<button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn"
-											type="submit">Search</button>
-									</form>
+								<aside style="height:300px; margin-bottom:20px;">
+									<iframe
+										src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31626.926511081092!2d110.06411846870041!3d-7.7509686424612045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7aeef262f565ab%3A0x5027a76e3555fb0!2sHulosobo%2C%20Kaligesing%2C%20Kabupaten%20Purworejo%2C%20Jawa%20Tengah%2C%20Indonesia!5e0!3m2!1sid!2sbn!4v1590700431063!5m2!1sid!2sbn"
+										width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen=""
+										aria-hidden="false" tabindex="0"></iframe>
 								</aside>
 
 								<aside class="single_sidebar_widget post_category_widget">
-									<h4 class="widget_title">Category</h4>
-									<ul class="list cat-list">
-										<li>
-											<a href="#" class="d-flex">
-												<p>Resaurant food</p>
-												<p>(37)</p>
-											</a>
-										</li>
-										<li>
-											<a href="#" class="d-flex">
-												<p>Travel news</p>
-												<p>(10)</p>
-											</a>
-										</li>
-										<li>
-											<a href="#" class="d-flex">
-												<p>Modern technology</p>
-												<p>(03)</p>
-											</a>
-										</li>
-										<li>
-											<a href="#" class="d-flex">
-												<p>Product</p>
-												<p>(11)</p>
-											</a>
-										</li>
-										<li>
-											<a href="#" class="d-flex">
-												<p>Inspiration</p>
-												<p>21</p>
-											</a>
-										</li>
-										<li>
-											<a href="#" class="d-flex">
-												<p>Health Care (21)</p>
-												<p>09</p>
-											</a>
-										</li>
-									</ul>
+									<h1 class="widget_title" style="margin-bottom:5px;">Statistik Penduduk</h1>
+									<div>
+										<canvas id="myChart"></canvas>
+									</div>
 								</aside>
 							</div>
 						</div>
@@ -373,17 +330,10 @@
 								</div>
 								<div class="footer-tittle">
 									<div class="footer-pera">
-										<p>Suscipit mauris pede for con sectetuer sodales adipisci for cursus fames
-											lectus tempor da blandit gravida sodales Suscipit mauris pede for con
-											sectetuer sodales adipisci for cursus fames lectus tempor da blandit gravida
-											sodales Suscipit mauris pede for sectetuer.</p>
+										<p>Website pemerintah Desa Hulosobo yang bertujuan untuk memberi informasi
+											kepada masyarakat secara cepat, akurat, dan menyediakan layanan yang bisa
+											diakses secara online.</p>
 									</div>
-								</div>
-								<!-- social -->
-								<div class="footer-social">
-									<a href="#"><i class="fab fa-twitter"></i></a>
-									<a href="#"><i class="fab fa-instagram"></i></a>
-									<a href="#"><i class="fab fa-pinterest-p"></i></a>
 								</div>
 							</div>
 						</div>
@@ -399,23 +349,13 @@
 					<div class="col-xl-3 col-lg-3 col-md-5 col-sm-6">
 						<div class="single-footer-caption mb-50 mt-60">
 							<div class="footer-tittle">
-								<h4>Instagram Feed</h4>
+								<h4>Social Media</h4>
 							</div>
-							<div class="instagram-gellay">
-								<ul class="insta-feed">
-									<li><a href="#"><img src="<?=base_url()?>assets/home/img/post/instra1.jpg"
-												alt=""></a></li>
-									<li><a href="#"><img src="<?=base_url()?>assets/home/img/post/instra2.jpg"
-												alt=""></a></li>
-									<li><a href="#"><img src="<?=base_url()?>assets/home/img/post/instra3.jpg"
-												alt=""></a></li>
-									<li><a href="#"><img src="<?=base_url()?>assets/home/img/post/instra4.jpg"
-												alt=""></a></li>
-									<li><a href="#"><img src="<?=base_url()?>assets/home/img/post/instra5.jpg"
-												alt=""></a></li>
-									<li><a href="#"><img src="<?=base_url()?>assets/home/img/post/instra6.jpg"
-												alt=""></a></li>
-								</ul>
+							<!-- social -->
+							<div class="footer-social">
+								<a href="#"><i class="fab fa-twitter"></i></a>
+								<a href="#"><i class="fab fa-instagram"></i></a>
+								<a href="#"><i class="fab fa-facebook"></i></a>
 							</div>
 						</div>
 					</div>
@@ -464,6 +404,41 @@
 	<!-- Jquery Plugins, main Jquery -->
 	<script src="<?=base_url()?>assets/home/js/plugins.js"></script>
 	<script src="<?=base_url()?>assets/home/js/main.js"></script>
+
+	<script>
+		var ctx = document.getElementById("myChart").getContext('2d');
+		var myChart = new Chart(ctx, {
+			type: 'bar',
+			data: {
+				labels: ["Laki-laki", "Perempuan", "Total"],
+				datasets: [{
+					label: 'Desa Hulosobo',
+					data: [12, 19, 3],
+					backgroundColor: [
+						'rgba(255, 99, 132, 0.2)',
+						'rgba(54, 162, 235, 0.2)',
+						'rgba(255, 159, 64, 0.2)'
+					],
+					borderColor: [
+						'rgba(255,99,132,1)',
+						'rgba(54, 162, 235, 1)',
+						'rgba(255, 159, 64, 1)'
+					],
+					borderWidth: 1
+				}]
+			},
+			options: {
+				scales: {
+					yAxes: [{
+						ticks: {
+							beginAtZero: true
+						}
+					}]
+				}
+			}
+		});
+
+	</script>
 
 </body>
 
