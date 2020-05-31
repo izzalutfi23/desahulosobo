@@ -44,6 +44,13 @@ class Dashboard extends CI_Controller {
         redirect('dashboard/penduduk');
     }
 
+    // Fungsi untuk edit data penduduk
+    public function edit_penduduk(){
+        $input = $this->input->post(NULL, false);
+        $this->Mdashboard->editpenduduk($input);
+        redirect('dashboard/penduduk');
+    }
+
     public function surat()
 	{
         $nama = $this->Mdashboard->getnama($this->session->userdata('user'));

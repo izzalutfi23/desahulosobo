@@ -29,5 +29,23 @@
             );
             $this->db->insert('penduduk', $param);
         }
+
+        public function editpenduduk($data){
+            $param = array(
+                'nama' => $data['nama'],
+                'tgl_lahir' => $data['tgl_lahir'],
+                'tmp_lahir' => $data['tmp_lahir'],
+                'j_kel' => $data['j_kel'],
+                'alamat' => $data['alamat'],
+                'rt_rw' => $data['rt_rw'],
+                'kelurahan' => $data['kelurahan'],
+                'kecamatan' => $data['kecamatan'],
+                'agama' => $data['agama'],
+                'pendidikan' => $data['pendidikan'],
+                'sts_kawin' => $data['sts_kawin'],
+                'pekerjaan' => $data['pekerjaan']
+            );
+            $this->db->update('penduduk', $param, ['nik'=>$data['nik']]);
+        }
     }
 ?>
