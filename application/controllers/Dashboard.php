@@ -3,10 +3,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Dashboard extends CI_Controller {
 
-	public function index()
+    function __construct(){
+        parent::__construct();
+        $this->load->model('Mdashboard');
+        if(!$this->session->userdata('user')){
+            redirect('login');
+        }
+    }
+
+    public function index()
 	{
+        $nama = $this->Mdashboard->getnama($this->session->userdata('user'));
         $data = array(
-            'title' => 'Home | Admin'
+            'title' => 'Home | Admin',
+            'nama' => $nama
         );
         $this->load->view('admin/_header', $data);
         $this->load->view('admin/index');
@@ -15,8 +25,11 @@ class Dashboard extends CI_Controller {
 
     public function penduduk()
 	{
+
+        $nama = $this->Mdashboard->getnama($this->session->userdata('user'));
         $data = array(
-            'title' => 'Penduduk | Admin'
+            'title' => 'Penduduk | Admin',
+            'nama' => $nama
         );
         $this->load->view('admin/_header', $data);
         $this->load->view('admin/penduduk');
@@ -25,8 +38,10 @@ class Dashboard extends CI_Controller {
 
     public function surat()
 	{
+        $nama = $this->Mdashboard->getnama($this->session->userdata('user'));
         $data = array(
-            'title' => 'Surat | Admin'
+            'title' => 'Surat | Admin',
+            'nama' => $nama
         );
         $this->load->view('admin/_header', $data);
         $this->load->view('admin/surat');
@@ -35,8 +50,10 @@ class Dashboard extends CI_Controller {
 
     public function berita()
 	{
+        $nama = $this->Mdashboard->getnama($this->session->userdata('user'));
         $data = array(
-            'title' => 'Berita | Admin'
+            'title' => 'Berita | Admin',
+            'nama' => $nama
         );
         $this->load->view('admin/_header', $data);
         $this->load->view('admin/berita');
@@ -45,8 +62,10 @@ class Dashboard extends CI_Controller {
 
     public function user()
 	{
+        $nama = $this->Mdashboard->getnama($this->session->userdata('user'));
         $data = array(
-            'title' => 'User | Admin'
+            'title' => 'User | Admin',
+            'nama' => $nama
         );
         $this->load->view('admin/_header', $data);
         $this->load->view('admin/user');

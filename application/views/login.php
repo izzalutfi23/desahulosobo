@@ -39,7 +39,7 @@
 		<div class="login-box-body">
 			<p class="login-box-msg">Silahkan Login</p>
 
-			<form action="../../index2.html" method="post">
+			<form action="<?=base_url('login/auth')?>" method="post">
 				<div class="form-group has-feedback">
 					<input type="text" class="form-control" placeholder="Username" name="username">
 					<span class="glyphicon glyphicon-user form-control-feedback"></span>

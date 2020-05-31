@@ -61,7 +61,7 @@
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 								<img src="<?=base_url()?>assets/admin/dist/img/avatar5.png" class="user-image"
 									alt="User Image">
-								<span class="hidden-xs">Alexander Pierce</span>
+								<span class="hidden-xs"><?=$nama->nama?></span>
 							</a>
 							<ul class="dropdown-menu">
 								<!-- User image -->
@@ -70,16 +70,13 @@
 										alt="User Image">
 
 									<p>
-										Alexander Pierce - Web Developer
+										<?=$nama->nama?> - Administrator
 									</p>
 								</li>
 								<!-- Menu Footer-->
 								<li class="user-footer">
-									<div class="pull-left">
-										<a href="#" class="btn btn-default btn-flat">Profile</a>
-									</div>
 									<div class="pull-right">
-										<a href="#" class="btn btn-default btn-flat">Sign out</a>
+										<a href="<?=base_url('login/logout')?>" class="btn btn-default btn-flat">Sign out</a>
 									</div>
 								</li>
 							</ul>

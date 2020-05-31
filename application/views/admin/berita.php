@@ -20,10 +20,10 @@
 				<div class="box">
 					<div class="box-header">
 						<button class="btn btn-primary" data-toggle="modal" data-target="#modal-default">Tambah
-							Buku</button>
+							Berita</button>
 						<!--Tambah-->
 						<div class="modal fade" id="modal-default">
-							<div class="modal-dialog">
+							<div class="modal-dialog modal-lg">
 								<div class="modal-content">
 									<div class="modal-header">
 										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -36,6 +36,10 @@
 												<label>Judul</label>
 												<input type="text" class="form-control" name="judul"
 													placeholder="Judul">
+											</div>
+											<div class="form-group">
+												<label>Isi</label>
+												<textarea id="editor1" name="editor1" rows="10" cols="80"></textarea>
 											</div>
 											<div class="modal-footer">
 												<button type="button" class="btn btn-default pull-left"
