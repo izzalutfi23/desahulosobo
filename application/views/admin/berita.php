@@ -34,8 +34,7 @@
 										<form action="" method="post">
 											<div class="form-group">
 												<label>Judul</label>
-												<input type="text" class="form-control" name="judul"
-													placeholder="Judul">
+												<input type="text" class="form-control" name="judul">
 											</div>
 											<div class="form-group">
 												<label>Isi</label>
@@ -59,21 +58,27 @@
 						<table id="example1" class="table table-bordered table-striped">
 							<thead>
 								<tr>
-									<th>Rendering engine</th>
-									<th>Browser</th>
-									<th>Platform(s)</th>
-									<th>Engine version</th>
-									<th>CSS grade</th>
+									<th>No</th>
+									<th>Judul Berita</th>
+									<th>Foto</th>
+									<th>Isi</th>
+									<th>Penulis</th>
+									<th>Tanggal</th>
+									<th>Aksi</th>
 								</tr>
 							</thead>
 							<tbody>
+								<?php
+									$no=1;
+									foreach($berita as $data){
+								?>
 								<tr>
-									<td>Trident</td>
-									<td>Internet
-										Explorer 4.0
-									</td>
-									<td>Win 95+</td>
-									<td> 4</td>
+									<td><?=$no++?></td>
+									<td><?=$data->judul?></td>
+									<td><?=$data->foto?></td>
+									<td><?=substr($data->isi, 0, 30)?>...</td>
+									<td><?=$data->penulis?></td>
+									<td><?=date('d M Y', strtotime($data->tgl))?></td>
 									<td>
 										<button class="btn btn-primary" data-toggle="modal" data-target="#edit"><i
 												class="fa fa-edit"></i></button>
@@ -81,13 +86,7 @@
 													class="fa fa-trash"></i></button></a>
 									</td>
 								</tr>
-								<tr>
-									<td>Gecko</td>
-									<td>Firefox 2.0</td>
-									<td>Win 98+ / OSX.2+</td>
-									<td>1.8</td>
-									<td>A</td>
-								</tr>
+								<?php } ?>
 							</tbody>
 						</table>
 					</div>

@@ -60,21 +60,30 @@ class Dashboard extends CI_Controller {
     public function surat()
 	{
         $nama = $this->Mdashboard->getnama($this->session->userdata('user'));
+        $surat = $this->Mdashboard->getsurat()->result();
         $data = array(
-            'title' => 'Surat | Admin',
-            'nama' => $nama
+            'title' => 'Data Permohonan Surat',
+            'nama' => $nama,
+            'surat' => $surat
         );
         $this->load->view('admin/_header', $data);
         $this->load->view('admin/surat');
         $this->load->view('admin/_footer');
     }
 
+    public function del_surat($id_surat){
+        $this->Mdashboard->delsurat($id_surat);
+        redirect('dashboard/surat');
+    }
+
     public function berita()
 	{
         $nama = $this->Mdashboard->getnama($this->session->userdata('user'));
+        $berita = $this->Mdashboard->getberita()->result();
         $data = array(
-            'title' => 'Berita | Admin',
-            'nama' => $nama
+            'title' => 'Data Berita',
+            'nama' => $nama,
+            'berita' => $berita
         );
         $this->load->view('admin/_header', $data);
         $this->load->view('admin/berita');

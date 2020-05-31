@@ -52,5 +52,19 @@
             $this->db->where('nik', $nik);
             $this->db->delete('penduduk');
         }
+
+        public function getsurat(){
+            $this->db->join('penduduk', 'penduduk.nik=surat.nik');
+            return $this->db->get('surat');
+        }
+
+        public function delsurat($id){
+            $this->db->where('id_surat', $id);
+            $this->db->delete('surat');
+        }
+
+        public function getberita(){
+            return $this->db->get('berita');
+        }
     }
 ?>

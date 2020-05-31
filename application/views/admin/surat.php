@@ -18,72 +18,42 @@
 		<div class="row">
 			<div class="col-xs-12">
 				<div class="box">
-					<div class="box-header">
-						<button class="btn btn-primary" data-toggle="modal" data-target="#modal-default">Tambah
-							Buku</button>
-						<!--Tambah-->
-						<div class="modal fade" id="modal-default">
-							<div class="modal-dialog">
-								<div class="modal-content">
-									<div class="modal-header">
-										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-											<span aria-hidden="true">&times;</span></button>
-										<h4 class="modal-title">Tambah Data Buku</h4>
-									</div>
-									<div class="modal-body">
-										<form action="" method="post">
-											<div class="form-group">
-												<label>Judul</label>
-												<input type="text" class="form-control" name="judul"
-													placeholder="Judul">
-											</div>
-											<div class="modal-footer">
-												<button type="button" class="btn btn-default pull-left"
-													data-dismiss="modal">Close</button>
-												<input type="submit" class="btn btn-primary" name="tambah"
-													value="Tambah">
-											</div>
-										</form>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- /.Tambah -->
-					</div>
 					<!-- /.box-header -->
 					<div class="box-body">
 						<table id="example1" class="table table-bordered table-striped">
 							<thead>
 								<tr>
-									<th>Rendering engine</th>
-									<th>Browser</th>
-									<th>Platform(s)</th>
-									<th>Engine version</th>
-									<th>CSS grade</th>
+									<th>No</th>
+									<th>Nama Pemohon</th>
+									<th>Email</th>
+									<th>Jenis Surat</th>
+									<th>Pesan</th>
+									<th>Tgl Permohonan</th>
+									<th>Status</th>
+									<th></th>
 								</tr>
 							</thead>
 							<tbody>
+								<?php
+									$no=1;
+									foreach($surat as $data){
+								?>
 								<tr>
-									<td>Trident</td>
-									<td>Internet
-										Explorer 4.0
-									</td>
-									<td>Win 95+</td>
-									<td> 4</td>
+									<td><?=$no++?></td>
+									<td><?=$data->nama?></td>
+									<td><?=$data->email?></td>
+									<td><?=$data->j_surat?></td>
+									<td><?=$data->pesan?></td>
+									<td><?=date('d M Y', strtotime($data->tgl))?></td>
 									<td>
-										<button class="btn btn-primary" data-toggle="modal" data-target="#edit"><i
-												class="fa fa-edit"></i></button>
-										<a href="#"><button class="btn btn-danger"><i
+										<?=($data->status == 1) ? '<a href="#"><button class="btn btn-success">Sudah Jadi</button></a>' : '<a href="#"><button class="btn btn-danger">Belum Jadi</button></a>';?>
+									</td>
+									<td>
+										<a onclick="return confirm('Data akan dihapus!')" href="<?=base_url('dashboard/del_surat/'.$data->id_surat)?>"><button class="btn btn-danger"><i
 													class="fa fa-trash"></i></button></a>
 									</td>
 								</tr>
-								<tr>
-									<td>Gecko</td>
-									<td>Firefox 2.0</td>
-									<td>Win 98+ / OSX.2+</td>
-									<td>1.8</td>
-									<td>A</td>
-								</tr>
+								<?php } ?>
 							</tbody>
 						</table>
 					</div>
