@@ -150,7 +150,7 @@
 									<td>
 										<button class="btn btn-primary" data-toggle="modal" data-target="#edit<?=$data->nik?>"><i
 												class="fa fa-edit"></i></button>
-										<a href="#"><button class="btn btn-danger"><i
+										<a onclick="confirm('Data akan dihapus!')" href="<?=base_url('dashboard/del_penduduk/'.$data->nik)?>"><button class="btn btn-danger"><i
 													class="fa fa-trash"></i></button></a>
 									</td>
 								</tr>

@@ -47,5 +47,10 @@
             );
             $this->db->update('penduduk', $param, ['nik'=>$data['nik']]);
         }
+
+        public function del_penduduk($nik){
+            $this->db->where('nik', $nik);
+            $this->db->delete('penduduk');
+        }
     }
 ?>

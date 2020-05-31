@@ -28,7 +28,7 @@ class Dashboard extends CI_Controller {
         $nama = $this->Mdashboard->getnama($this->session->userdata('user'));
         $penduduk = $this->Mdashboard->getpenduduk();
         $data = array(
-            'title' => 'Penduduk | Admin',
+            'title' => 'Data Penduduk',
             'nama' => $nama,
             'penduduk' => $penduduk
         );
@@ -48,6 +48,12 @@ class Dashboard extends CI_Controller {
     public function edit_penduduk(){
         $input = $this->input->post(NULL, false);
         $this->Mdashboard->editpenduduk($input);
+        redirect('dashboard/penduduk');
+    }
+
+    // Fungsi hapus data penduduk
+    public function del_penduduk($nik){
+        $this->Mdashboard->del_penduduk($nik);
         redirect('dashboard/penduduk');
     }
 
