@@ -25,15 +25,23 @@ class Dashboard extends CI_Controller {
 
     public function penduduk()
 	{
-
         $nama = $this->Mdashboard->getnama($this->session->userdata('user'));
+        $penduduk = $this->Mdashboard->getpenduduk();
         $data = array(
             'title' => 'Penduduk | Admin',
-            'nama' => $nama
+            'nama' => $nama,
+            'penduduk' => $penduduk
         );
         $this->load->view('admin/_header', $data);
         $this->load->view('admin/penduduk');
         $this->load->view('admin/_footer');
+    }
+
+    // Fungsi untuk menambah data penduduk
+    public function add_penduduk(){
+        $input = $this->input->post(NULL, false);
+        $this->Mdashboard->inputpenduduk($input);
+        redirect('dashboard/penduduk');
     }
 
     public function surat()
