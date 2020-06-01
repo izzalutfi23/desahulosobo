@@ -66,5 +66,9 @@
         public function getberita(){
             return $this->db->get('berita');
         }
+
+        public function addberita($data){
+            $this->db->insert('berita', $data);
+        }
     }
 ?>

@@ -90,6 +90,35 @@ class Dashboard extends CI_Controller {
         $this->load->view('admin/_footer');
     }
 
+    public function add_berita(){
+        $config['upload_path']	 = './assets/image/berita';
+	 	$config['allowed_types'] = 'gif|jpg|png';
+	 	$config['max_size']	 = 10000;
+	 	$config['max_width']	 = 10240;
+        $config['max_height']	 = 5000;
+         
+        $this->load->library('upload', $config);
+
+        if ($this->upload->do_upload('foto')){
+            $data = array(
+                'judul' => $this->input->post('judul'),
+                'foto' => $_FILES['foto']['name'],
+                'isi' => $this->input->post('isi'),
+                'penulis' => $this->input->post('penulis')
+            );
+            $this->Mdashboard->addberita($data);
+        }
+        else{
+            $data = array(
+                'judul' => $this->input->post('judul'),
+                'isi' => $this->input->post('isi'),
+                'penulis' => $this->input->post('penulis')
+            );
+            $this->Mdashboard->addberita($data);
+        }
+        redirect('dashboard/berita');
+    }
+
     public function user()
 	{
         $nama = $this->Mdashboard->getnama($this->session->userdata('user'));
