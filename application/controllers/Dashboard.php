@@ -104,18 +104,52 @@ class Dashboard extends CI_Controller {
                 'judul' => $this->input->post('judul'),
                 'foto' => $_FILES['foto']['name'],
                 'isi' => $this->input->post('isi'),
-                'penulis' => $this->input->post('penulis')
+                'penulis' => $this->input->post('penulis'),
+                'tgl' => date('Y-m-d')
             );
             $this->Mdashboard->addberita($data);
+            redirect('dashboard/berita');
+        }
+        else{
+            echo "Gagal upload gambar";
+        }
+    }
+
+    public function edit_berita(){
+        $config['upload_path']	 = './assets/image/berita';
+	 	$config['allowed_types'] = 'gif|jpg|png';
+	 	$config['max_size']	 = 10000;
+	 	$config['max_width']	 = 10240;
+        $config['max_height']	 = 5000;
+         
+        $this->load->library('upload', $config);
+
+        if ($this->upload->do_upload('foto')){
+            $data = array(
+                'id_berita' => $this->input->post('id_berita'),
+                'judul' => $this->input->post('judul'),
+                'foto' => $_FILES['foto']['name'],
+                'isi' => $this->input->post('isi'),
+                'penulis' => $this->input->post('penulis'),
+                'tgl' => date('Y-m-d')
+            );
+            $this->Mdashboard->editberita($data);
         }
         else{
             $data = array(
+                'id_berita' => $this->input->post('id_berita'),
                 'judul' => $this->input->post('judul'),
                 'isi' => $this->input->post('isi'),
-                'penulis' => $this->input->post('penulis')
+                'penulis' => $this->input->post('penulis'),
+                'tgl' => date('Y-m-d')
             );
-            $this->Mdashboard->addberita($data);
+            $this->Mdashboard->editberita($data);
         }
+        redirect('dashboard/berita');
+    }
+
+    public function del_berita($id_berita){
+        $this->Mdashboard->delberita($id_berita);
         redirect('dashboard/berita');
     }
 

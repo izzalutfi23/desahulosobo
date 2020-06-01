@@ -31,7 +31,8 @@
 										<h4 class="modal-title">Tambah Data Berita</h4>
 									</div>
 									<div class="modal-body">
-										<form action="<?=base_url('dashboard/add_berita')?>" enctype="multipart/form-data" method="post">
+										<form action="<?=base_url('dashboard/add_berita')?>"
+											enctype="multipart/form-data" method="post">
 											<div class="form-group">
 												<label>Judul</label>
 												<input type="text" class="form-control" required name="judul">
@@ -42,7 +43,8 @@
 											</div>
 											<div class="form-group">
 												<label>Isi</label>
-												<textarea id="editor1" name="isi" required name="editor1" rows="10" cols="80"></textarea>
+												<textarea id="editor1" name="isi" required rows="10"
+													cols="80"></textarea>
 											</div>
 											<div class="form-group">
 												<label>Penulis</label>
@@ -59,7 +61,7 @@
 								</div>
 							</div>
 						</div>
-						<!-- /.Tambah -->
+						<!-- /Tambah -->
 					</div>
 					<!-- /.box-header -->
 					<div class="box-body">
@@ -88,12 +90,57 @@
 									<td><?=$data->penulis?></td>
 									<td><?=date('d M Y', strtotime($data->tgl))?></td>
 									<td>
-										<button class="btn btn-primary" data-toggle="modal" data-target="#edit"><i
-												class="fa fa-edit"></i></button>
-										<a href="#"><button class="btn btn-danger"><i
+										<button class="btn btn-primary" data-toggle="modal"
+											data-target="#edit<?=$data->id_berita?>"><i class="fa fa-edit"></i></button>
+										<a onclick="return confirm('Data akan dihapus!')" href="<?=base_url('dashboard/del_berita/'.$data->id_berita)?>"><button class="btn btn-danger"><i
 													class="fa fa-trash"></i></button></a>
 									</td>
 								</tr>
+								<!--Edit-->
+								<div class="modal fade" id="edit<?=$data->id_berita?>">
+									<div class="modal-dialog modal-lg">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal"
+													aria-label="Close">
+													<span aria-hidden="true">&times;</span></button>
+												<h4 class="modal-title">Edit Data Berita</h4>
+											</div>
+											<div class="modal-body">
+												<form action="<?=base_url('dashboard/edit_berita')?>"
+													enctype="multipart/form-data" method="post">
+													<div class="form-group">
+														<label>Judul</label>
+														<input type="hidden" name="id_berita"
+															value="<?=$data->id_berita?>">
+														<input type="text" class="form-control"
+															value="<?=$data->judul?>" name="judul">
+													</div>
+													<div class="form-group">
+														<label>Foto</label>
+														<input type="file" class="form-control" name="foto">
+													</div>
+													<div class="form-group">
+														<label>Isi</label>
+														<textarea name="isi" rows="10" style="width:100%;"><?=$data->isi?></textarea>
+													</div>
+													<div class="form-group">
+														<label>Penulis</label>
+														<input type="text" class="form-control"
+															value="<?=$data->penulis?>" name="penulis">
+													</div>
+													<div class="modal-footer">
+														<button type="button" class="btn btn-default pull-left"
+															data-dismiss="modal">Close</button>
+														<input type="submit" class="btn btn-primary" required
+															name="edit" value="Edit">
+													</div>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- /Edit -->
 								<?php } ?>
 							</tbody>
 						</table>

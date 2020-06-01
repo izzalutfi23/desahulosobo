@@ -70,5 +70,14 @@
         public function addberita($data){
             $this->db->insert('berita', $data);
         }
+
+        public function editberita($data){
+            $this->db->update('berita', $data, ['id_berita'=>$data['id_berita']]);
+        }
+
+        public function delberita($id){
+            $this->db->where('id_berita', $id);
+            $this->db->delete('berita');
+        }
     }
 ?>
