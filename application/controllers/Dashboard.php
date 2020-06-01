@@ -156,12 +156,25 @@ class Dashboard extends CI_Controller {
     public function user()
 	{
         $nama = $this->Mdashboard->getnama($this->session->userdata('user'));
+        $user = $this->Mdashboard->getuser()->result();
         $data = array(
             'title' => 'User | Admin',
-            'nama' => $nama
+            'nama' => $nama,
+            'user' => $user
         );
         $this->load->view('admin/_header', $data);
         $this->load->view('admin/user');
         $this->load->view('admin/_footer');
+    }
+
+    public function add_user(){
+        $input = $this->input->post(NULL, false);
+        $this->Mdashboard->adduser($input);
+        redirect('dashboard/user');
+    }
+
+    public function del_user($id_user){
+        $this->Mdashboard->deluser($id_user);
+        redirect('dashboard/user');
     }
 }

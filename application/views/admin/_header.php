@@ -113,7 +113,7 @@
 							<i class="fa fa-newspaper-o"></i> <span>Berita</span>
 						</a>
 					</li>
-					<li class="<?=($this->uri->segment(2) == 'usuer') ? 'active treeview' : ''?>">
+					<li class="<?=($this->uri->segment(2) == 'user') ? 'active treeview' : ''?>">
 						<a href="<?=base_url('dashboard/user')?>">
 							<i class="fa fa-user"></i> <span>User</span>
 						</a>

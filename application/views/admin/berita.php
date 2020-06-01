@@ -48,7 +48,7 @@
 											</div>
 											<div class="form-group">
 												<label>Penulis</label>
-												<input type="text" class="form-control" required name="penulis">
+												<input type="text" class="form-control" value="<?=$nama->nama?>" required name="penulis">
 											</div>
 											<div class="modal-footer">
 												<button type="button" class="btn btn-default pull-left"

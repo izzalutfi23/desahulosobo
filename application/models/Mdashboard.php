@@ -79,5 +79,23 @@
             $this->db->where('id_berita', $id);
             $this->db->delete('berita');
         }
+
+        public function getuser(){
+            return $this->db->get('user');
+        }
+
+        public function adduser($data){
+            $param = array(
+                'nama' => $data['nama'],
+                'username' => $data['username'],
+                'password' => md5($data['password'])
+            );
+            $this->db->insert('user', $param);
+        }
+
+        public function deluser($id){
+            $this->db->where('id_user', $id);
+            $this->db->delete('user');
+        }
     }
 ?>

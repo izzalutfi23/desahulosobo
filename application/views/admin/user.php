@@ -20,7 +20,7 @@
 				<div class="box">
 					<div class="box-header">
 						<button class="btn btn-primary" data-toggle="modal" data-target="#modal-default">Tambah
-							Buku</button>
+							User</button>
 						<!--Tambah-->
 						<div class="modal fade" id="modal-default">
 							<div class="modal-dialog">
@@ -28,14 +28,21 @@
 									<div class="modal-header">
 										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 											<span aria-hidden="true">&times;</span></button>
-										<h4 class="modal-title">Tambah Data Buku</h4>
+										<h4 class="modal-title">Tambah Data User</h4>
 									</div>
 									<div class="modal-body">
-										<form action="" method="post">
+										<form action="<?=base_url('dashboard/add_user')?>" method="post">
 											<div class="form-group">
-												<label>Judul</label>
-												<input type="text" class="form-control" name="judul"
-													placeholder="Judul">
+												<label>Nama</label>
+												<input type="text" class="form-control" name="nama">
+											</div>
+											<div class="form-group">
+												<label>Username</label>
+												<input type="text" class="form-control" name="username">
+											</div>
+											<div class="form-group">
+												<label>Password</label>
+												<input type="text" class="form-control" name="password">
 											</div>
 											<div class="modal-footer">
 												<button type="button" class="btn btn-default pull-left"
@@ -55,35 +62,27 @@
 						<table id="example1" class="table table-bordered table-striped">
 							<thead>
 								<tr>
-									<th>Rendering engine</th>
-									<th>Browser</th>
-									<th>Platform(s)</th>
-									<th>Engine version</th>
-									<th>CSS grade</th>
+									<th>No</th>
+									<th>Nama</th>
+									<th>Username</th>
+									<th>Aksi</th>
 								</tr>
 							</thead>
 							<tbody>
+								<?php
+									$no=1;
+									foreach($user as $data){
+								?>
 								<tr>
-									<td>Trident</td>
-									<td>Internet
-										Explorer 4.0
-									</td>
-									<td>Win 95+</td>
-									<td> 4</td>
+									<td><?=$no++?></td>
+									<td><?=$data->nama?></td>
+									<td><?=$data->username?></td>
 									<td>
-										<button class="btn btn-primary" data-toggle="modal" data-target="#edit"><i
-												class="fa fa-edit"></i></button>
-										<a href="#"><button class="btn btn-danger"><i
+										<a onclick="return confirm('Data akan dihapus!')" href="<?=base_url('dashboard/del_user/'.$data->id_user)?>"><button class="btn btn-danger"><i
 													class="fa fa-trash"></i></button></a>
 									</td>
 								</tr>
-								<tr>
-									<td>Gecko</td>
-									<td>Firefox 2.0</td>
-									<td>Win 98+ / OSX.2+</td>
-									<td>1.8</td>
-									<td>A</td>
-								</tr>
+								<?php } ?>
 							</tbody>
 						</table>
 					</div>
