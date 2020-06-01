@@ -24,6 +24,10 @@
 	<link rel="stylesheet" href="<?=base_url()?>assets/home/css/nice-select.css">
 	<link rel="stylesheet" href="<?=base_url()?>assets/home/css/style.css">
 
+	<!-- Tree -->
+	<link rel="stylesheet" href="<?=base_url()?>assets/tree/Treant.css">
+    <link rel="stylesheet" href="<?=base_url()?>assets/tree/basic-example.css">
+
 	<!-- Datatables -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
 	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
@@ -56,7 +60,7 @@
 							<div class="row d-flex justify-content-between align-items-center">
 								<div class="header-info-left">
 									<ul>
-										<li><img src="assets/img/icon/header_icon1.png" alt="">34ºc, Cerah </li>
+										<li><img src="<?=base_url()?>assets/home/img/icon/header_icon1.png" alt="">34ºc, Berawan </li>
 										<li><img src="assets/img/icon/header_icon1.png" alt=""><?=date('D, d M Y')?>
 										</li>
 									</ul>
@@ -106,9 +110,9 @@
 											<li><a href="<?=base_url('home')?>">Home</a></li>
 											<li><a href="#">Pemerintah Desa</a>
 												<ul class="submenu">
-													<li><a href="elements.html">Visi dan Misi</a></li>
-													<li><a href="blog.html">Pemerintah Desa</a></li>
-													<li><a href="single-blog.html">Badan Permusyawaratan Desa</a></li>
+													<li><a href="<?=base_url('home/newsdetail/visi-dan-misi-desa-hulosobo.html')?>">Visi dan Misi</a></li>
+													<li><a href="<?=base_url('home/struktur')?>">Pemerintah Desa</a></li>
+													<li><a href="<?=base_url('home/newsdetail/badan-musyawarah-desa-hulosobo.html')?>">Badan Permusyawaratan Desa</a></li>
 												</ul>
 											</li>
 											<li><a href="#">Data Desa</a>

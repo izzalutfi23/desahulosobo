@@ -100,12 +100,21 @@ class Dashboard extends CI_Controller {
         $this->load->library('upload', $config);
 
         if ($this->upload->do_upload('foto')){
+
+            //Buat slug
+            $judul=$this->input->post('judul');
+            $string= preg_replace("/[^a-zA-Z0-9 ]/", "", $judul);
+            $trim=trim($string);
+            $pre_slug=strtolower(str_replace(" ", "-", $trim));
+            $slug=$pre_slug.'.html';
+
             $data = array(
                 'judul' => $this->input->post('judul'),
                 'foto' => $_FILES['foto']['name'],
                 'isi' => $this->input->post('isi'),
                 'penulis' => $this->input->post('penulis'),
-                'tgl' => date('Y-m-d')
+                'tgl' => date('Y-m-d'),
+                'slug' => $slug
             );
             $this->Mdashboard->addberita($data);
             redirect('dashboard/berita');

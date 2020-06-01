@@ -6,7 +6,7 @@
 					<div class="single-post">
 						<div class="feature-img">
 							<aside class="card-img rounded-0">
-								<h2 class="widget_title pb-3" style="margin-bottom:5px;">Demografi Berdasar Pendidikan Dalam
+								<h2 class="widget_title pb-3" style="margin-bottom:5px;">Demografi Berdasarkan Pendidikan Dalam
 									KK</h2>
 								<div>
 									<canvas id="data"></canvas>

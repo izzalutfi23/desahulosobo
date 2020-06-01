@@ -27,7 +27,7 @@
 							<img src="<?=base_url()?>assets/image/profil/profil.jpg" alt="">
 							<div class="trend-top-cap">
 								<span>Profil Desa</span>
-								<h2><a href="details.html">Profil Desa Hulosobo, Kaligesing, Purworejo, Jawa
+								<h2><a href="<?=base_url('home/newsdetail/profil-desa-hulosobo-kaligesing-purworejo-jawa-tengah.html')?>">Profil Desa Hulosobo, Kaligesing, Purworejo, Jawa
 										Tengah</a></h2>
 							</div>
 						</div>
@@ -42,7 +42,7 @@
 									</div>
 									<div class="trend-bottom-cap">
 										<span class="color1">Visi Misi</span>
-										<h4><a href="details.html">Visi dan Misi Desa Hulosobo</a></h4>
+										<h4><a href="<?=base_url('home/newsdetail/visi-dan-misi-desa-hulosobo.html')?>">Visi dan Misi Desa Hulosobo</a></h4>
 									</div>
 								</div>
 							</div>
@@ -54,7 +54,7 @@
 									<div class="trend-bottom-cap">
 										<span class="color2">Pemerintahan Desa</span>
 										<h4>
-											<h4><a href="details.html">Susunan Organisasi dan Tata Kerja Desa
+											<h4><a href="<?=base_url('home/struktur')?>">Susunan Organisasi dan Tata Kerja Desa
 													Hulosobo</a></h4>
 										</h4>
 									</div>
@@ -67,7 +67,7 @@
 									</div>
 									<div class="trend-bottom-cap">
 										<span class="color3">BPD</span>
-										<h4><a href="details.html">Badan Musyawarah Desa Hulosobo</a>
+										<h4><a href="<?=base_url('home/newsdetail/badan-musyawarah-desa-hulosobo.html')?>">Badan Musyawarah Desa Hulosobo</a>
 										</h4>
 									</div>
 								</div>

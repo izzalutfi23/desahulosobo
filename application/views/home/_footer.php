@@ -17,14 +17,14 @@
 
 		<aside class="single_sidebar_widget search_widget">
 			<h1 class="widget_title" style="margin-bottom:20px;">Layanan Mandiri</h1>
-			<p>Silakan datang atau hubungi operator desa untuk mendapatkan kode PIN anda.</p>
+			<p>Silakan lakukan registrasi terlebih dahulu dengan klik link berikut <a href="#"><u style="color: blue;">Registrasi</u></a></p>
 			<form action="<?=base_url('index.php')?>" method="post">
 				<div class="form-group">
 					<div class="input-group mb-3">
-						<input type="text" style="border:1px solid#EEE;" class="form-control" placeholder='NIK'>
+						<input type="text" style="border:1px solid#EEE;" class="form-control" placeholder='Username'>
 					</div>
 					<div class="input-group mb-3">
-						<input type="text" class="form-control" placeholder='PIN'>
+						<input type="text" class="form-control" placeholder='Password'>
 						<div class="input-group-append">
 							<button class="btns" type="submit"><i class="ti-unlock"></i></button>
 						</div>

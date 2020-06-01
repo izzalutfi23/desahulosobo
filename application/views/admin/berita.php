@@ -86,7 +86,7 @@
 									<td><?=$no++?></td>
 									<td><?=$data->judul?></td>
 									<td><img src="<?=base_url('assets/image/berita/'.$data->foto)?>" width="80px"></td>
-									<td><?=substr($data->isi, 0, 30)?>...</td>
+									<td><?=substr($data->isi, 0, 100)?>...</td>
 									<td><?=$data->penulis?></td>
 									<td><?=date('d M Y', strtotime($data->tgl))?></td>
 									<td>
