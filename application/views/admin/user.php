@@ -65,6 +65,7 @@
 									<th>No</th>
 									<th>Nama</th>
 									<th>Username</th>
+									<th>Role</th>
 									<th>Aksi</th>
 								</tr>
 							</thead>
@@ -77,6 +78,7 @@
 									<td><?=$no++?></td>
 									<td><?=$data->nama?></td>
 									<td><?=$data->username?></td>
+									<td><?=$data->role?></td>
 									<td>
 										<a onclick="return confirm('Data akan dihapus!')" href="<?=base_url('dashboard/del_user/'.$data->id_user)?>"><button class="btn btn-danger"><i
 													class="fa fa-trash"></i></button></a>

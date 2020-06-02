@@ -120,16 +120,13 @@
 											</li>
 											<li><a href="#">Data Desa</a>
 												<ul class="submenu">
-													<li><a href="<?=base_url('home/data')?>">Data Pendidikan dalam KK</a></li>
-													<li><a href="blog.html">Data Pendidikan ditempuh</a></li>
-													<li><a href="single-blog.html">Data Pekerjaan</a></li>
-													<li><a href="details.html">Data Jenis Kelamin</a></li>
-													<li><a href="single-blog.html">Data Golongan Darah</a></li>
-													<li><a href="details.html">Data Kelompok Umur</a></li>
-													<li><a href="details.html">Data Perkawinan</a></li>
+													<li><a href="<?=base_url('home/data_pendidikan')?>">Data Pendidikan dalam KK</a></li>
+													<li><a href="<?=base_url('home/data_jkel')?>">Data Jenis Kelamin</a></li>
+													<li><a href="<?=base_url('home/data_gold')?>">Data Golongan Darah</a></li>
+													<li><a href="<?=base_url('home/data_perkawinan')?>">Data Perkawinan</a></li>
 												</ul>
 											</li>
-											<li><a href="contact.html" class="sweet">Surat Online</a></li>
+											<li><a href="<?=base_url('home/surat')?>" class="<?=(!$this->session->userdata('user')) ? 'sweet' : '';?>">Surat Online</a></li>
 											<li><a href="<?=base_url('home/berita')?>">Berita</a></li>
 											<li><a href="<?=base_url('home/kontak')?>">Kontak</a></li>
 											<?php

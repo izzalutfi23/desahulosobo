@@ -13,7 +13,7 @@
         public function inputpenduduk($data){
             $param = array(
                 'nik' => $data['nik'],
-                'pin' => random_string('alnum', 5),
+                'gol_d' => $data['gol_d'],
                 'nama' => $data['nama'],
                 'tgl_lahir' => $data['tgl_lahir'],
                 'tmp_lahir' => $data['tmp_lahir'],

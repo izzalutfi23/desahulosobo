@@ -34,5 +34,9 @@
             $this->db->where('username', $user);
             return $this->db->get('user')->row();
         }
+
+        public function getpenduduk(){
+            return $this->db->get('penduduk');
+        }
     }
 ?>

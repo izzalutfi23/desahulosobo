@@ -102,17 +102,67 @@ class Home extends CI_Controller {
         $this->load->view('home/_footer');
     }
     
-    public function data()
+    public function data_pendidikan()
 	{
         $beritabaru = $this->Mhome->getbbaru()->result();
         $nama = $this->Mhome->getnama($this->session->userdata('user'));
+        $penduduk = $this->Mhome->getpenduduk()->result();
         $data = array(
             'bbaru' => $beritabaru,
             'nama' => $nama,
-            'title' => 'Data | Desa Hulosobo'
+            'title' => 'Data Pendidikan | Desa Hulosobo',
+            'penduduk' => $penduduk
         );
         $this->load->view('home/_header', $data);
-        $this->load->view('home/data_desa');
+        $this->load->view('home/data_pendidikan');
+        $this->load->view('home/_footer');
+    }
+
+    public function data_jkel()
+	{
+        $beritabaru = $this->Mhome->getbbaru()->result();
+        $nama = $this->Mhome->getnama($this->session->userdata('user'));
+        $penduduk = $this->Mhome->getpenduduk()->result();
+        $data = array(
+            'bbaru' => $beritabaru,
+            'nama' => $nama,
+            'title' => 'Data Jenis Kelamin | Desa Hulosobo',
+            'penduduk' => $penduduk
+        );
+        $this->load->view('home/_header', $data);
+        $this->load->view('home/data_jkel');
+        $this->load->view('home/_footer');
+    }
+
+    public function data_gold()
+	{
+        $beritabaru = $this->Mhome->getbbaru()->result();
+        $nama = $this->Mhome->getnama($this->session->userdata('user'));
+        $penduduk = $this->Mhome->getpenduduk()->result();
+        $data = array(
+            'bbaru' => $beritabaru,
+            'nama' => $nama,
+            'title' => 'Data Golongan Darah | Desa Hulosobo',
+            'penduduk' => $penduduk
+        );
+        $this->load->view('home/_header', $data);
+        $this->load->view('home/data_gold');
+        $this->load->view('home/_footer');
+    }
+
+    public function data_perkawinan()
+	{
+        $beritabaru = $this->Mhome->getbbaru()->result();
+        $nama = $this->Mhome->getnama($this->session->userdata('user'));
+        $penduduk = $this->Mhome->getpenduduk()->result();
+        $data = array(
+            'bbaru' => $beritabaru,
+            'nama' => $nama,
+            'title' => 'Data Perkawinan | Desa Hulosobo',
+            'penduduk' => $penduduk
+        );
+        $this->load->view('home/_header', $data);
+        $this->load->view('home/data_perkawinan');
         $this->load->view('home/_footer');
     }
     
@@ -132,7 +182,7 @@ class Home extends CI_Controller {
         $nama = $this->Mhome->getnama($this->session->userdata('user'));
         $data = array(
             'nama' => $nama,
-            'title' => 'Kontak | Desa Hulosobo'
+            'title' => 'Registrasi | Desa Hulosobo'
         );
         $this->load->view('home/_header', $data);
         $this->load->view('home/registrasi');
@@ -157,5 +207,16 @@ class Home extends CI_Controller {
         $this->load->view('home/_header', $data);
         $this->load->view('home/profil');
         $this->load->view('home/_footer');
+    }
+
+    public function surat()
+	{
+        $nama = $this->Mhome->getnama($this->session->userdata('user'));
+        $data = array(
+            'nama' => $nama,
+            'title' => 'Permohonan Surat | Desa Hulosobo'
+        );
+        $this->load->view('home/_header', $data);
+        $this->load->view('home/surat');
     }
 }

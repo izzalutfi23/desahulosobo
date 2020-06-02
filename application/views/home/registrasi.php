@@ -1,15 +1,17 @@
 <!-- ================ contact section start ================= -->
 <!-- <div class="flash-data" data-flashdata="{{session('notif')}}"></div> -->
-<section class="blog_area fix" style="margin-top: 30px;">
+<section class="blog_area fix" style="margin-top: 70px; margin-bottom: 70px;">
 	<div class="container">
 		<div class="row">
-			<div class="col-12">
+			<div class="col-lg-12">
 				<!--Flashdata-->
 				<?php if($this->session->flashdata('registrasi')){ ?>
 				<div class="alert alert-info-alt alert-dismissable">
 					<span class="glyphicon glyphicon-certificate"></span>
-					<button style="padding-top: 0px;" type="button" class="close" data-dismiss="alert" aria-hidden="true">
-						×</button><strong>Registrasi Berhasil!</strong> <?=$this->session->flashdata('registrasi')?></div>
+					<button style="padding-top: 0px;" type="button" class="close" data-dismiss="alert"
+						aria-hidden="true">
+						×</button><strong>Registrasi Berhasil!</strong> <?=$this->session->flashdata('registrasi')?>
+				</div>
 				<?php } ?>
 				<!--End flashdata-->
 				<h2 class="contact-title">Registrasi Akun</h2>
