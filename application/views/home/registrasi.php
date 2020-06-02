@@ -1,83 +1,62 @@
-<!-- Right content -->
-<div class="col-lg-4">
-	<div class="blog_right_sidebar">
-		<aside style="height:300px; margin-bottom:20px;">
-			<iframe
-				src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31626.926511081092!2d110.06411846870041!3d-7.7509686424612045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7aeef262f565ab%3A0x5027a76e3555fb0!2sHulosobo%2C%20Kaligesing%2C%20Kabupaten%20Purworejo%2C%20Jawa%20Tengah%2C%20Indonesia!5e0!3m2!1sid!2sbn!4v1590700431063!5m2!1sid!2sbn"
-				width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
-				tabindex="0"></iframe>
-		</aside>
-
-		<aside class="single_sidebar_widget post_category_widget">
-			<h1 class="widget_title" style="margin-bottom:5px;">Statistik Penduduk</h1>
-			<div>
-				<canvas id="myChart"></canvas>
-			</div>
-		</aside>
-
-		<aside class="single_sidebar_widget search_widget">
-			<h1 class="widget_title" style="margin-bottom:20px;">Layanan Mandiri</h1>
-			<p>Silakan lakukan registrasi terlebih dahulu dengan klik link berikut <a href="<?=base_url('home/registrasi')?>"><u
-						style="color: blue;">Registrasi</u></a></p>
-			<form action="<?=base_url('index.php')?>" method="post">
-				<div class="form-group">
-					<div class="input-group mb-3">
-						<input type="text" style="border:1px solid#EEE;" class="form-control" placeholder='Username'>
-					</div>
-					<div class="input-group mb-3">
-						<input type="text" class="form-control" placeholder='Password'>
-						<div class="input-group-append">
-							<button class="btns" type="submit"><i class="ti-unlock"></i></button>
-						</div>
-					</div>
-				</div>
-			</form>
-		</aside>
-	</div>
-</div>
-</div>
-</div>
-</div>
-<!-- Trending Area End -->
-<!--   Weekly2-News start -->
-<div class="weekly2-news-area  weekly2-pading gray-bg">
+<!-- ================ contact section start ================= -->
+<section class="blog_area fix" style="margin-top: 30px;">
 	<div class="container">
-		<div class="weekly2-wrapper">
-			<!-- section Tittle -->
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="section-tittle mb-30">
-						<h3>Berita Terbaru</h3>
-					</div>
-				</div>
+		<div class="row">
+			<div class="col-12">
+				<h2 class="contact-title">Registrasi Akun</h2>
 			</div>
-			<div class="row">
-				<div class="col-12">
-					<div class="weekly2-news-active dot-style d-flex dot-style">
-						<?php
-							foreach($bbaru as $b){
-						?>
-						<div class="weekly2-single">
-							<div class="weekly2-img">
-								<img src="<?=base_url()?>assets/image/berita/<?=$b->foto?>" height="200px">
-							</div>
-							<div class="weekly2-caption">
-								<span class="color1">Update</span>
-								<p><?=date('d M Y', strtotime($b->tgl))?></p>
-								<h4><a
-										href="<?=base_url('home/newsdetail/'.$b->slug)?>"><?=substr($b->judul, 0, 50)?>...</a>
-								</h4>
+			<div class="col-lg-8">
+				<form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm"
+					novalidate="novalidate">
+					<div class="row">
+                    <div class="col-12">
+							<div class="form-group">
+								<input class="form-control" name="nama" required type="text" placeholder="Masukkan Nama Lengkap">
 							</div>
 						</div>
-						<?php } ?>
+						<div class="col-sm-6">
+							<div class="form-group">
+								<input class="form-control valid" name="username" required type="text" placeholder="Masukkan Username (Tidak boleh spasi)">
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="form-group">
+								<input class="form-control valid" name="password" required type="text" placeholder="Masukkan Password">
+							</div>
+						</div>
+					</div>
+					<div class="form-group mt-3">
+						<button type="submit" class="button button-contactForm boxed-btn">Daftar</button>
+					</div>
+				</form>
+			</div>
+			<div class="col-lg-3 offset-lg-1">
+				<div class="media contact-info">
+					<span class="contact-info__icon"><i class="ti-home"></i></span>
+					<div class="media-body">
+						<h3>Hulosobo, Kaligesing</h3>
+						<p>Kab. Purworejo, Jawa Tengah</p>
+					</div>
+				</div>
+				<div class="media contact-info">
+					<span class="contact-info__icon"><i class="ti-tablet"></i></span>
+					<div class="media-body">
+						<h3>+628675876455</h3>
+						<p>Senin-Sabtu 07.00-14.00</p>
+					</div>
+				</div>
+				<div class="media contact-info">
+					<span class="contact-info__icon"><i class="ti-email"></i></span>
+					<div class="media-body">
+						<h3>email@hulosobo.desa.id</h3>
+						<p>Kirim email kapan saja!</p>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
-<!-- End Weekly-News -->
-<!--  Recent Articles start -->
+</section>
+<!-- ================ contact section end ================= -->
 
 <footer>
 	<!-- Footer Start-->
@@ -172,58 +151,6 @@
 <!-- Datatables -->
 <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
-
-<!-- Sweetaler -->
-<script src="<?=base_url()?>assets/sweetalert/js/sweetalert.min.js"></script>
-
-<script>
-	// Swwe
-	$('.sweet').on('click', function (e) {
-		e.preventDefault();
-		swal({
-			title: "Oppss!!!",
-			text: "Anda harus login terlebih dahulu",
-			type: "warning"
-		});
-	});
-	// Data Penduduk
-	var ctx = document.getElementById("myChart").getContext('2d');
-	var myChart = new Chart(ctx, {
-		type: 'bar',
-		data: {
-			labels: ["Laki-laki", "Perempuan", "Total"],
-			datasets: [{
-				label: 'Desa Hulosobo',
-				data: [12, 19, 3],
-				backgroundColor: [
-					'rgba(255, 99, 132, 0.2)',
-					'rgba(54, 162, 235, 0.2)',
-					'rgba(255, 159, 64, 0.2)'
-				],
-				borderColor: [
-					'rgba(255,99,132,1)',
-					'rgba(54, 162, 235, 1)',
-					'rgba(255, 159, 64, 1)'
-				],
-				borderWidth: 1
-			}]
-		},
-		options: {
-			scales: {
-				yAxes: [{
-					ticks: {
-						beginAtZero: true
-					}
-				}]
-			}
-		}
-	});
-
-	$(document).ready(function () {
-		$('#example').DataTable();
-	});
-
-</script>
 
 </body>
 

@@ -24,9 +24,8 @@
 	<link rel="stylesheet" href="<?=base_url()?>assets/home/css/nice-select.css">
 	<link rel="stylesheet" href="<?=base_url()?>assets/home/css/style.css">
 
-	<!-- Tree -->
-	<link rel="stylesheet" href="<?=base_url()?>assets/tree/Treant.css">
-    <link rel="stylesheet" href="<?=base_url()?>assets/tree/basic-example.css">
+	<!-- sweet alert framework -->
+    <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/sweetalert/css/sweetalert.css">
 
 	<!-- Datatables -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
@@ -126,7 +125,7 @@
 													<li><a href="details.html">Data Perkawinan</a></li>
 												</ul>
 											</li>
-											<li><a href="contact.html">Surat Online</a></li>
+											<li><a href="contact.html" class="sweet">Surat Online</a></li>
 											<li><a href="<?=base_url('home/berita')?>">Berita</a></li>
 											<li><a href="<?=base_url('home/kontak')?>">Kontak</a></li>
 										</ul>
@@ -137,9 +136,8 @@
 								<div class="header-right-btn f-right d-none d-lg-block">
 									<i class="fas fa-search special-tag"></i>
 									<div class="search-box">
-										<form action="#">
-											<input type="text" placeholder="Search">
-
+										<form action="<?=base_url('home/berita')?>" method="post">
+											<input type="text" name="cari" placeholder="Search">
 										</form>
 									</div>
 								</div>

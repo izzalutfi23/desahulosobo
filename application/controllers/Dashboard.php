@@ -106,7 +106,7 @@ class Dashboard extends CI_Controller {
             $string= preg_replace("/[^a-zA-Z0-9 ]/", "", $judul);
             $trim=trim($string);
             $pre_slug=strtolower(str_replace(" ", "-", $trim));
-            $slug=$pre_slug.'.html';
+            $slug=substr($pre_slug, 0, 90).'.html';
 
             $data = array(
                 'judul' => $this->input->post('judul'),

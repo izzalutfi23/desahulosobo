@@ -9,8 +9,10 @@ class Home extends CI_Controller {
     }
 	public function index()
 	{
+        $beritabaru = $this->Mhome->getbbaru()->result();
         $data = array(
-            'title' => 'Home | Desa Hulosobo'
+            'title' => 'Home | Desa Hulosobo',
+            'bbaru' => $beritabaru
         );
         $this->load->view('home/_header', $data);
         $this->load->view('home/index');
@@ -53,15 +55,23 @@ class Home extends CI_Controller {
 
 		$start=$this->uri->segment(3);
         $this->pagination->initialize($config);
+
+        $cari=null;
+		if(isset($_POST['cari'])){
+			$cari=$_POST['cari'];
+		}
         
         $par=array(
 			'perpage'=>$config['per_page'],
-			'start'=>$start
+            'start'=>$start,
+            'cari'=>$cari 
 		);
 
         $berita = $this->Mhome->getberita($par)->result();
 
+        $beritabaru = $this->Mhome->getbbaru()->result();
         $data = array(
+            'bbaru' => $beritabaru,
             'title' => 'Berita | Desa Hulosobo',
             'berita' => $berita
         );
@@ -73,8 +83,10 @@ class Home extends CI_Controller {
     public function newsdetail($slug)
 	{
         $dberita = $this->Mhome->getdberita($slug)->row();
+        $beritabaru = $this->Mhome->getbbaru()->result();
         $data = array(
-            'title' => 'Berita | Desa Hulosobo',
+            'bbaru' => $beritabaru,
+            'title' => $dberita->judul,
             'dberita' => $dberita
         );
         $this->load->view('home/_header', $data);
@@ -84,7 +96,9 @@ class Home extends CI_Controller {
     
     public function data()
 	{
+        $beritabaru = $this->Mhome->getbbaru()->result();
         $data = array(
+            'bbaru' => $beritabaru,
             'title' => 'Data | Desa Hulosobo'
         );
         $this->load->view('home/_header', $data);
@@ -99,5 +113,14 @@ class Home extends CI_Controller {
         );
         $this->load->view('home/_header', $data);
         $this->load->view('home/kontak');
+    }
+    
+    public function registrasi()
+	{
+        $data = array(
+            'title' => 'Kontak | Desa Hulosobo'
+        );
+        $this->load->view('home/_header', $data);
+        $this->load->view('home/registrasi');
 	}
 }
