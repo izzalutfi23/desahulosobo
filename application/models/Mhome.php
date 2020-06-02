@@ -19,5 +19,20 @@
             $this->db->limit(7);
             return $this->db->get('berita');
         }
+
+        public function regis($data){
+            $param = array(
+                'role' => 'umum',
+                'nama' => $data['nama'],
+                'username' => $data['username'],
+                'password' => md5($data['password'])
+            );
+            $this->db->insert('user', $param);
+        }
+
+        public function getnama($user){
+            $this->db->where('username', $user);
+            return $this->db->get('user')->row();
+        }
     }
 ?>

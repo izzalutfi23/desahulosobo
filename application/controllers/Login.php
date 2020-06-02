@@ -16,11 +16,18 @@ class Login extends CI_Controller {
     public function auth(){
         $user=$_POST['username'];
         $pass=md5($_POST['password']);
-        $query=$this->Auth->cek($user,$pass)->row();
-        $cek=count($query);
+        $query=$this->Auth->cek($user,$pass);
+        $cek=$query->num_rows();
+        $data = $query->row();
         if($cek>0){
-            $this->session->set_userdata('user', $user);
-            redirect('dashboard');
+            if($data->role=="admin"){
+                $this->session->set_userdata(array('user'=>$user, 'role'=>$data->role));
+                redirect('dashboard');
+            }
+            else{
+                $this->session->set_userdata(array('user'=>$user, 'role'=>$data->role));
+                redirect('home');
+            }
         }
         else{
             redirect('login');

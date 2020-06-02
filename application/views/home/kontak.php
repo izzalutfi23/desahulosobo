@@ -176,42 +176,18 @@
 <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
 
-<script>
-	// Data Penduduk
-	var ctx = document.getElementById("myChart").getContext('2d');
-	var myChart = new Chart(ctx, {
-		type: 'bar',
-		data: {
-			labels: ["Laki-laki", "Perempuan", "Total"],
-			datasets: [{
-				label: 'Desa Hulosobo',
-				data: [12, 19, 3],
-				backgroundColor: [
-					'rgba(255, 99, 132, 0.2)',
-					'rgba(54, 162, 235, 0.2)',
-					'rgba(255, 159, 64, 0.2)'
-				],
-				borderColor: [
-					'rgba(255,99,132,1)',
-					'rgba(54, 162, 235, 1)',
-					'rgba(255, 159, 64, 1)'
-				],
-				borderWidth: 1
-			}]
-		},
-		options: {
-			scales: {
-				yAxes: [{
-					ticks: {
-						beginAtZero: true
-					}
-				}]
-			}
-		}
-	});
+<!-- Sweetaler -->
+<script src="<?=base_url()?>assets/sweetalert/js/sweetalert.min.js"></script>
 
-	$(document).ready(function () {
-		$('#example').DataTable();
+<script>
+	// Sweet
+	$('.sweet').on('click', function (e) {
+		e.preventDefault();
+		swal({
+			title: "Oppss!!!",
+			text: "Anda harus login terlebih dahulu",
+			type: "warning"
+		});
 	});
 
 </script>

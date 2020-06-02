@@ -1,27 +1,38 @@
 <!-- ================ contact section start ================= -->
+<!-- <div class="flash-data" data-flashdata="{{session('notif')}}"></div> -->
 <section class="blog_area fix" style="margin-top: 30px;">
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
+				<!--Flashdata-->
+				<?php if($this->session->flashdata('registrasi')){ ?>
+				<div class="alert alert-info-alt alert-dismissable">
+					<span class="glyphicon glyphicon-certificate"></span>
+					<button style="padding-top: 0px;" type="button" class="close" data-dismiss="alert" aria-hidden="true">
+						×</button><strong>Registrasi Berhasil!</strong> <?=$this->session->flashdata('registrasi')?></div>
+				<?php } ?>
+				<!--End flashdata-->
 				<h2 class="contact-title">Registrasi Akun</h2>
 			</div>
 			<div class="col-lg-8">
-				<form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm"
-					novalidate="novalidate">
+				<form class="form-contact contact_form" action="<?=base_url('home/proses_registrasi')?>" method="post">
 					<div class="row">
-                    <div class="col-12">
+						<div class="col-12">
 							<div class="form-group">
-								<input class="form-control" name="nama" required type="text" placeholder="Masukkan Nama Lengkap">
+								<input class="form-control" name="nama" required type="text"
+									placeholder="Masukkan Nama Lengkap">
 							</div>
 						</div>
 						<div class="col-sm-6">
 							<div class="form-group">
-								<input class="form-control valid" name="username" required type="text" placeholder="Masukkan Username (Tidak boleh spasi)">
+								<input class="form-control valid" name="username" required type="text"
+									placeholder="Masukkan Username (Tanpa spasi)">
 							</div>
 						</div>
 						<div class="col-sm-6">
 							<div class="form-group">
-								<input class="form-control valid" name="password" required type="text" placeholder="Masukkan Password">
+								<input class="form-control valid" name="password" required type="text"
+									placeholder="Masukkan Password">
 							</div>
 						</div>
 					</div>
@@ -151,6 +162,32 @@
 <!-- Datatables -->
 <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+
+<!-- Sweetaler -->
+<script src="<?=base_url()?>assets/sweetalert/js/sweetalert.min.js"></script>
+
+<script>
+	// Sweet
+	$('.sweet').on('click', function (e) {
+		e.preventDefault();
+		swal({
+			title: "Oppss!!!",
+			text: "Anda harus login terlebih dahulu",
+			type: "warning"
+		});
+	});
+
+	// Modal sukses registrasi
+	const flashData = $('.flash-data').data('flashdata');
+	if (flashData) {
+		swal({
+			title: "Berhasil",
+			text: flashData,
+			type: "success"
+		});
+	}
+
+</script>
 
 </body>
 

@@ -30,6 +30,10 @@
 	<!-- Datatables -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
 	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
+
+	<style type="text/css">
+		.alert-info-alt { border-color: #B4E1E4;background: #81c7e1;color: #fff; }
+	</style>
 	
 	<script type="text/javascript" src="<?=base_url()?>assets/home/js/Chart.js"></script>
 </head>
@@ -128,6 +132,17 @@
 											<li><a href="contact.html" class="sweet">Surat Online</a></li>
 											<li><a href="<?=base_url('home/berita')?>">Berita</a></li>
 											<li><a href="<?=base_url('home/kontak')?>">Kontak</a></li>
+											<?php
+												if($this->session->userdata('user')){
+											?>
+											<li><a href="#"><?=$nama->nama?></a>
+												<ul class="submenu">
+													<li><a href="<?=base_url('home/profil')?>">Lihat Profil</a></li>
+													<li><a href="<?=base_url('login/logout')?>">Logout</a></li>
+												</ul>
+											</li>
+											<?php } ?>
+
 										</ul>
 									</nav>
 								</div>

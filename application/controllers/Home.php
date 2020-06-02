@@ -10,7 +10,9 @@ class Home extends CI_Controller {
 	public function index()
 	{
         $beritabaru = $this->Mhome->getbbaru()->result();
+        $nama = $this->Mhome->getnama($this->session->userdata('user'));
         $data = array(
+            'nama' => $nama,
             'title' => 'Home | Desa Hulosobo',
             'bbaru' => $beritabaru
         );
@@ -20,7 +22,9 @@ class Home extends CI_Controller {
     }
 
     public function struktur(){
+        $nama = $this->Mhome->getnama($this->session->userdata('user'));
         $data = array(
+            'nama' => $nama,
             'title' => 'Struktur Organisasi | Desa Hulosobo'
         );
         $this->load->view('home/_header', $data);
@@ -70,8 +74,10 @@ class Home extends CI_Controller {
         $berita = $this->Mhome->getberita($par)->result();
 
         $beritabaru = $this->Mhome->getbbaru()->result();
+        $nama = $this->Mhome->getnama($this->session->userdata('user'));
         $data = array(
             'bbaru' => $beritabaru,
+            'nama' => $nama,
             'title' => 'Berita | Desa Hulosobo',
             'berita' => $berita
         );
@@ -84,8 +90,10 @@ class Home extends CI_Controller {
 	{
         $dberita = $this->Mhome->getdberita($slug)->row();
         $beritabaru = $this->Mhome->getbbaru()->result();
+        $nama = $this->Mhome->getnama($this->session->userdata('user'));
         $data = array(
             'bbaru' => $beritabaru,
+            'nama' => $nama,
             'title' => $dberita->judul,
             'dberita' => $dberita
         );
@@ -97,8 +105,10 @@ class Home extends CI_Controller {
     public function data()
 	{
         $beritabaru = $this->Mhome->getbbaru()->result();
+        $nama = $this->Mhome->getnama($this->session->userdata('user'));
         $data = array(
             'bbaru' => $beritabaru,
+            'nama' => $nama,
             'title' => 'Data | Desa Hulosobo'
         );
         $this->load->view('home/_header', $data);
@@ -108,7 +118,9 @@ class Home extends CI_Controller {
     
     public function kontak()
 	{
+        $nama = $this->Mhome->getnama($this->session->userdata('user'));
         $data = array(
+            'nama' => $nama,
             'title' => 'Kontak | Desa Hulosobo'
         );
         $this->load->view('home/_header', $data);
@@ -117,10 +129,33 @@ class Home extends CI_Controller {
     
     public function registrasi()
 	{
+        $nama = $this->Mhome->getnama($this->session->userdata('user'));
         $data = array(
+            'nama' => $nama,
             'title' => 'Kontak | Desa Hulosobo'
         );
         $this->load->view('home/_header', $data);
         $this->load->view('home/registrasi');
-	}
+    }
+    
+    public function proses_registrasi(){
+        $input = $this->input->post(NULL, false);
+        $this->Mhome->regis($input);
+        $this->session->set_flashdata('registrasi', 'Silahkan login menggunakan username dan password yg telah anda buat');
+        redirect('home/registrasi');
+    }
+
+    public function profil()
+	{
+        $beritabaru = $this->Mhome->getbbaru()->result();
+        $nama = $this->Mhome->getnama($this->session->userdata('user'));
+        $data = array(
+            'bbaru' => $beritabaru,
+            'nama' => $nama,
+            'title' => 'Profil | Desa Hulosobo'
+        );
+        $this->load->view('home/_header', $data);
+        $this->load->view('home/profil');
+        $this->load->view('home/_footer');
+    }
 }

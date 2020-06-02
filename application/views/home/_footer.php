@@ -19,13 +19,13 @@
 			<h1 class="widget_title" style="margin-bottom:20px;">Layanan Mandiri</h1>
 			<p>Silakan lakukan registrasi terlebih dahulu dengan klik link berikut <a href="<?=base_url('home/registrasi')?>"><u
 						style="color: blue;">Registrasi</u></a></p>
-			<form action="<?=base_url('index.php')?>" method="post">
+			<form action="<?=base_url('login/auth')?>" method="post">
 				<div class="form-group">
 					<div class="input-group mb-3">
-						<input type="text" style="border:1px solid#EEE;" class="form-control" placeholder='Username'>
+						<input type="text" name="username" style="border:1px solid#EEE;" class="form-control" placeholder='Username'>
 					</div>
 					<div class="input-group mb-3">
-						<input type="text" class="form-control" placeholder='Password'>
+						<input type="password" name="password" class="form-control" placeholder='Password'>
 						<div class="input-group-append">
 							<button class="btns" type="submit"><i class="ti-unlock"></i></button>
 						</div>
@@ -177,7 +177,7 @@
 <script src="<?=base_url()?>assets/sweetalert/js/sweetalert.min.js"></script>
 
 <script>
-	// Swwe
+	// Sweet
 	$('.sweet').on('click', function (e) {
 		e.preventDefault();
 		swal({

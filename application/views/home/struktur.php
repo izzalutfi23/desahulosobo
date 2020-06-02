@@ -186,10 +186,18 @@
 <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
 
-<script>
+<!-- Sweetaler -->
+<script src="<?=base_url()?>assets/sweetalert/js/sweetalert.min.js"></script>
 
-	$(document).ready(function () {
-		$('#example').DataTable();
+<script>
+	// Sweet
+	$('.sweet').on('click', function (e) {
+		e.preventDefault();
+		swal({
+			title: "Oppss!!!",
+			text: "Anda harus login terlebih dahulu",
+			type: "warning"
+		});
 	});
 
 </script>

@@ -6,7 +6,10 @@ class Dashboard extends CI_Controller {
     function __construct(){
         parent::__construct();
         $this->load->model('Mdashboard');
-        if(!$this->session->userdata('user')){
+        if($this->session->userdata('user') && $this->session->userdata('role')=="admin"){
+            
+        }
+        else{
             redirect('login');
         }
     }
