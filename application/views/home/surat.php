@@ -2,25 +2,36 @@
 <section class="blog_area fix" style="margin-top: 30px;">
 	<div class="container">
 		<div class="row">
-			<div class="col-12">
+            <div class="col-lg-12">
+				<!--Flashdata-->
+				<?php if($this->session->flashdata('surat')){ ?>
+				<div class="alert alert-info-alt alert-dismissable">
+					<span class="glyphicon glyphicon-certificate"></span>
+					<button style="padding-top: 0px;" type="button" class="close" data-dismiss="alert"
+						aria-hidden="true">
+						×</button><strong>Success!</strong> <?=$this->session->flashdata('surat')?>
+				</div>
+				<?php } ?>
+				<!--End flashdata-->
 				<h2 class="contact-title">Permohonan Surat</h2>
 			</div>
-			<div class="col-lg-8">
+			<div class="col-lg-8 mb-5">
 				<form class="form-contact contact_form" action="<?=base_url('home/add_surat')?>" method="post">
 					<div class="row">
                     <div class="col-12">
 							<div class="form-group">
-								<input class="form-control" name="nama" type="text" readonly value="<?=$nama->nama?>">
+                                <input type="hidden" name="id_user" value="<?=$nama->id_user?>">
+								<input class="form-control" required name="nama" type="text" readonly value="<?=$nama->nama?>">
 							</div>
                         </div>
 						<div class="col-sm-6">
 							<div class="form-group">
-                            <input class="form-control" name="email" type="email" placeholder="Masukkan Email">
+                            <input class="form-control" required name="email" type="email" placeholder="Masukkan Email">
 							</div>
 						</div>
 						<div class="col-sm-6">
 							<div class="form-group">
-								<select name="j_surat" class="form-control">
+								<select required name="j_surat" class="form-control">
                                     <option value="sku">Surat Keterangan Usaha</option>
                                     <option value="skm">Surat Keterangan Miskin</option>
                                     <option value="sktm">Surat Keterangan Tidak Mampu</option>
@@ -37,7 +48,36 @@
 					<div class="form-group mt-3">
 						<button type="submit" class="button button-contactForm boxed-btn">Kirim</button>
 					</div>
-				</form>
+                </form>
+                <hr>
+                <h2 class="contact-title">Riwayat Permohonan Surat</h2>
+                <table id="example" class="table table-striped table-bordered" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama</th>
+                            <th>Email</th>
+                            <th>Jenis Permohonan</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $no=1;
+                        foreach($surat as $data){
+                    ?>
+                        <tr>
+                            <td><?=$no++?></td>
+                            <td><?=$data->nama?></td>
+                            <td><?=$data->email?></td>
+                            <td><?=$data->j_surat?></td>
+                            <td>
+                                <?=($data->status == 1) ? '<a href="#"><button class="btn btn-success">Sudah Jadi</button></a>' : '<a href="#"><button class="btn btn-danger">Belum Jadi</button></a>';?>
+                            </td>
+                        </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
 			</div>
 			<div class="col-lg-3 offset-lg-1">
 				<div class="media contact-info">
@@ -173,6 +213,10 @@
 			text: "Anda harus login terlebih dahulu",
 			type: "warning"
 		});
+	});
+
+    $(document).ready(function () {
+		$('#example').DataTable();
 	});
 
 </script>

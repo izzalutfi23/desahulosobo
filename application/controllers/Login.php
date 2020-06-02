@@ -26,6 +26,7 @@ class Login extends CI_Controller {
             }
             else{
                 $this->session->set_userdata(array('user'=>$user, 'role'=>$data->role));
+                $this->session->set_flashdata('login', 'Berhasil Melakukan Login');
                 redirect('home');
             }
         }

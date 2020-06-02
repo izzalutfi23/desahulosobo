@@ -74,6 +74,11 @@ class Dashboard extends CI_Controller {
         $this->load->view('admin/_footer');
     }
 
+    public function ubahstatus($id){
+        $this->Mdashboard->ubah_status($id);
+        redirect('dashboard/surat');
+    }
+
     public function del_surat($id_surat){
         $this->Mdashboard->delsurat($id_surat);
         redirect('dashboard/surat');

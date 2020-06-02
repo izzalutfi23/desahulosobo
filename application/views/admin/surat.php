@@ -46,7 +46,17 @@
 									<td><?=$data->pesan?></td>
 									<td><?=date('d M Y', strtotime($data->tgl))?></td>
 									<td>
-										<?=($data->status == 1) ? '<a href="#"><button class="btn btn-success">Sudah Jadi</button></a>' : '<a href="#"><button class="btn btn-danger">Belum Jadi</button></a>';?>
+										<?php
+											if($data->status == 1){
+										?>
+											<a href="#"><button class="btn btn-success">Sudah Jadi</button></a>
+										<?php
+											}else{
+										?>
+											<a href="<?=base_url('dashboard/ubahstatus/'.$data->id_surat)?>"><button class="btn btn-danger">Belum Jadi</button></a>
+										<?php
+											}
+										?>
 									</td>
 									<td>
 										<a onclick="return confirm('Data akan dihapus!')" href="<?=base_url('dashboard/del_surat/'.$data->id_surat)?>"><button class="btn btn-danger"><i

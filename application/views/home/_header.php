@@ -25,16 +25,21 @@
 	<link rel="stylesheet" href="<?=base_url()?>assets/home/css/style.css">
 
 	<!-- sweet alert framework -->
-    <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/sweetalert/css/sweetalert.css">
+	<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/sweetalert/css/sweetalert.css">
 
 	<!-- Datatables -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
 	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
 
 	<style type="text/css">
-		.alert-info-alt { border-color: #B4E1E4;background: #81c7e1;color: #fff; }
+		.alert-info-alt {
+			border-color: #B4E1E4;
+			background: #81c7e1;
+			color: #fff;
+		}
+
 	</style>
-	
+
 	<script type="text/javascript" src="<?=base_url()?>assets/home/js/Chart.js"></script>
 </head>
 
@@ -63,7 +68,8 @@
 							<div class="row d-flex justify-content-between align-items-center">
 								<div class="header-info-left">
 									<ul>
-										<li><img src="<?=base_url()?>assets/home/img/icon/header_icon1.png" alt="">34ºc, Berawan </li>
+										<li><img src="<?=base_url()?>assets/home/img/icon/header_icon1.png" alt="">34ºc,
+											Berawan </li>
 										<li><img src="assets/img/icon/header_icon1.png" alt=""><?=date('D, d M Y')?>
 										</li>
 									</ul>
@@ -113,20 +119,31 @@
 											<li><a href="<?=base_url('home')?>">Home</a></li>
 											<li><a href="#">Pemerintah Desa</a>
 												<ul class="submenu">
-													<li><a href="<?=base_url('home/newsdetail/visi-dan-misi-desa-hulosobo.html')?>">Visi dan Misi</a></li>
-													<li><a href="<?=base_url('home/struktur')?>">Pemerintah Desa</a></li>
-													<li><a href="<?=base_url('home/newsdetail/badan-musyawarah-desa-hulosobo.html')?>">Badan Permusyawaratan Desa</a></li>
+													<li><a
+															href="<?=base_url('home/newsdetail/visi-dan-misi-desa-hulosobo.html')?>">Visi
+															dan Misi</a></li>
+													<li><a href="<?=base_url('home/struktur')?>">Pemerintah Desa</a>
+													</li>
+													<li><a
+															href="<?=base_url('home/newsdetail/badan-musyawarah-desa-hulosobo.html')?>">Badan
+															Permusyawaratan Desa</a></li>
 												</ul>
 											</li>
 											<li><a href="#">Data Desa</a>
 												<ul class="submenu">
-													<li><a href="<?=base_url('home/data_pendidikan')?>">Data Pendidikan dalam KK</a></li>
-													<li><a href="<?=base_url('home/data_jkel')?>">Data Jenis Kelamin</a></li>
-													<li><a href="<?=base_url('home/data_gold')?>">Data Golongan Darah</a></li>
-													<li><a href="<?=base_url('home/data_perkawinan')?>">Data Perkawinan</a></li>
+													<li><a href="<?=base_url('home/data_pendidikan')?>">Data Pendidikan
+															dalam KK</a></li>
+													<li><a href="<?=base_url('home/data_jkel')?>">Data Jenis Kelamin</a>
+													</li>
+													<li><a href="<?=base_url('home/data_gold')?>">Data Golongan
+															Darah</a></li>
+													<li><a href="<?=base_url('home/data_perkawinan')?>">Data
+															Perkawinan</a></li>
 												</ul>
 											</li>
-											<li><a href="<?=base_url('home/surat')?>" class="<?=(!$this->session->userdata('user')) ? 'sweet' : '';?>">Surat Online</a></li>
+											<li><a href="<?=base_url('home/surat')?>"
+													class="<?=(!$this->session->userdata('user')) ? 'sweet' : '';?>">Surat
+													Online</a></li>
 											<li><a href="<?=base_url('home/berita')?>">Berita</a></li>
 											<li><a href="<?=base_url('home/kontak')?>">Kontak</a></li>
 											<?php
@@ -164,4 +181,7 @@
 			</div>
 		</div>
 		<!-- Header End -->
+		<?php if($this->session->flashdata('login')){ ?>
+			<div class="flash-data" data-flashdata="<?=$this->session->flashdata('login')?>"></div>
+		<?php } ?>
 	</header>

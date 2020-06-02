@@ -54,7 +54,7 @@
         }
 
         public function getsurat(){
-            $this->db->join('penduduk', 'penduduk.nik=surat.nik');
+            $this->db->join('user', 'user.id_user=surat.id_user');
             return $this->db->get('surat');
         }
 
@@ -96,6 +96,14 @@
         public function deluser($id){
             $this->db->where('id_user', $id);
             $this->db->delete('user');
+        }
+
+        public function ubah_status($id){
+            $param = array(
+                'status' => '1'
+            );
+
+            $this->db->update('surat', $param, array('id_surat'=>$id));
         }
     }
 ?>

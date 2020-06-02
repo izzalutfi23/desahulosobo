@@ -38,5 +38,22 @@
         public function getpenduduk(){
             return $this->db->get('penduduk');
         }
+
+        public function addsurat($data){
+            $param = array(
+                'id_user' => $data['id_user'],
+                'email' => $data['email'],
+                'j_surat' => $data['j_surat'],
+                'pesan' => $data['pesan'],
+                'status' => '0',
+                'tgl' => date('Y-m-d')
+            );
+            $this->db->insert('surat', $param);
+        }
+
+        public function getsurat($id){
+            $this->db->join('user', 'user.id_user=surat.id_user');
+            return $this->db->get_where('surat', array('surat.id_user'=>$id))->result();
+        }
     }
 ?>

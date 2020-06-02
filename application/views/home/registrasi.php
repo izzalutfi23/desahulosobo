@@ -1,5 +1,4 @@
 <!-- ================ contact section start ================= -->
-<!-- <div class="flash-data" data-flashdata="{{session('notif')}}"></div> -->
 <section class="blog_area fix" style="margin-top: 70px; margin-bottom: 70px;">
 	<div class="container">
 		<div class="row">
@@ -178,16 +177,6 @@
 			type: "warning"
 		});
 	});
-
-	// Modal sukses registrasi
-	const flashData = $('.flash-data').data('flashdata');
-	if (flashData) {
-		swal({
-			title: "Berhasil",
-			text: flashData,
-			type: "success"
-		});
-	}
 
 </script>
 

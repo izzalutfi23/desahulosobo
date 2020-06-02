@@ -186,6 +186,17 @@
 			type: "warning"
 		});
 	});
+
+	// Modal sukses registrasi
+	const flashData = $('.flash-data').data('flashdata');
+	if (flashData) {
+		swal({
+			title: "Success",
+			text: flashData,
+			type: "success"
+		});
+	}
+
 	// Data Penduduk
 	var ctx = document.getElementById("myChart").getContext('2d');
 	var myChart = new Chart(ctx, {
