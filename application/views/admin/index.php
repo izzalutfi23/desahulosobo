@@ -21,14 +21,14 @@
 				<!-- small box -->
 				<div class="small-box bg-aqua">
 					<div class="inner">
-						<h3>150</h3>
+						<h3><?=$this->db->get('penduduk')->num_rows()?></h3>
 
-						<p>Jumlah Buku</p>
+						<p>Penduduk</p>
 					</div>
 					<div class="icon">
-						<i class="ion-android-document"></i>
+						<i style="font-size: 80px;" class="fa fa-users"></i>
 					</div>
-					<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+					<a href="<?=base_url('dashboard/penduduk')?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
 				</div>
 			</div>
 			<!-- ./col -->
@@ -36,14 +36,14 @@
 				<!-- small box -->
 				<div class="small-box bg-green">
 					<div class="inner">
-						<h3>53<sup style="font-size: 20px">%</sup></h3>
+						<h3><?=$this->db->get('surat')->num_rows()?></h3>
 
-						<p>Distributor</p>
+						<p>Surat</p>
 					</div>
 					<div class="icon">
-						<i class="ion ion-person-stalker"></i>
+						<i style="font-size: 80px;" class="fa fa-book"></i>
 					</div>
-					<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+					<a href="<?=base_url('dashboard/surat')?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
 				</div>
 			</div>
 			<!-- ./col -->
@@ -51,14 +51,14 @@
 				<!-- small box -->
 				<div class="small-box bg-yellow">
 					<div class="inner">
-						<h3>44</h3>
+						<h3><?=$this->db->get('berita')->num_rows()?></h3>
 
-						<p>Pasok</p>
+						<p>Berita</p>
 					</div>
 					<div class="icon">
-						<i class="ion ion-plus-round"></i>
+						<i style="font-size: 80px;" class="fa fa-newspaper-o"></i>
 					</div>
-					<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+					<a href="<?=base_url('dashboard/berita')?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
 				</div>
 			</div>
 			<!-- ./col -->
@@ -66,14 +66,14 @@
 				<!-- small box -->
 				<div class="small-box bg-red">
 					<div class="inner">
-						<h3>65</h3>
+						<h3><?=$this->db->get('user')->num_rows()?></h3>
 
-						<p>Penjualan</p>
+						<p>User</p>
 					</div>
 					<div class="icon">
-						<i class="ion-android-cart"></i>
+						<i style="font-size: 80px;" class="fa fa-user"></i>
 					</div>
-					<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+					<a href="<?=base_url('dashboard/user')?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
 				</div>
 			</div>
 			<!-- ./col -->
