@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 02, 2020 at 06:45 PM
+-- Generation Time: Jun 06, 2020 at 01:56 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -53,6 +53,32 @@ INSERT INTO `berita` (`id_berita`, `judul`, `foto`, `isi`, `penulis`, `tgl`, `sl
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `laporan`
+--
+
+CREATE TABLE `laporan` (
+  `id_laporan` int(5) NOT NULL,
+  `id_user` int(5) NOT NULL,
+  `id_surat` int(5) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `pesan` text NOT NULL,
+  `tgl` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `laporan`
+--
+
+INSERT INTO `laporan` (`id_laporan`, `id_user`, `id_surat`, `email`, `pesan`, `tgl`) VALUES
+(1, 7, 1, 'ibibi@gmail.com', 'harap cepat dibuat', '2020-06-06'),
+(4, 8, 1, 'izzalutfi045@gmail.com', 'Cepet diurus ya', '2020-06-06'),
+(5, 8, 2, 'anitatriulfania72@gmail.com', 'ya', '2020-06-06'),
+(6, 8, 2, 'anitatriulfania72@gmail.com', 'tes', '2020-06-06'),
+(7, 8, 4, 'dewikurniasari490@gmail.com', 'yes', '2020-06-06');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `penduduk`
 --
 
@@ -92,21 +118,17 @@ INSERT INTO `penduduk` (`nik`, `nama`, `tgl_lahir`, `tmp_lahir`, `j_kel`, `alama
 
 CREATE TABLE `surat` (
   `id_surat` int(5) NOT NULL,
-  `id_user` int(5) NOT NULL,
-  `email` varchar(30) NOT NULL,
-  `j_surat` varchar(30) NOT NULL,
-  `pesan` text NOT NULL,
-  `status` enum('1','0') NOT NULL,
-  `tgl` date NOT NULL
+  `jenis_surat` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `surat`
 --
 
-INSERT INTO `surat` (`id_surat`, `id_user`, `email`, `j_surat`, `pesan`, `status`, `tgl`) VALUES
-(2, 8, 'test@gmail.com', 'skk', 'test', '1', '0000-00-00'),
-(3, 8, 'test@gmail.com', 'sku', 'jhvhjvjhvj', '1', '2020-06-02');
+INSERT INTO `surat` (`id_surat`, `jenis_surat`) VALUES
+(1, 'Surat Keterangan Usaha'),
+(2, 'Surat Keterangan Tidak Mampu'),
+(4, 'Surat Keterangan Miskin');
 
 -- --------------------------------------------------------
 
@@ -142,6 +164,14 @@ ALTER TABLE `berita`
   ADD PRIMARY KEY (`id_berita`);
 
 --
+-- Indexes for table `laporan`
+--
+ALTER TABLE `laporan`
+  ADD PRIMARY KEY (`id_laporan`),
+  ADD KEY `id_user` (`id_user`),
+  ADD KEY `id_surat` (`id_surat`);
+
+--
 -- Indexes for table `penduduk`
 --
 ALTER TABLE `penduduk`
@@ -151,8 +181,7 @@ ALTER TABLE `penduduk`
 -- Indexes for table `surat`
 --
 ALTER TABLE `surat`
-  ADD PRIMARY KEY (`id_surat`),
-  ADD KEY `nik` (`id_user`);
+  ADD PRIMARY KEY (`id_surat`);
 
 --
 -- Indexes for table `user`
@@ -171,10 +200,16 @@ ALTER TABLE `berita`
   MODIFY `id_berita` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
+-- AUTO_INCREMENT for table `laporan`
+--
+ALTER TABLE `laporan`
+  MODIFY `id_laporan` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT for table `surat`
 --
 ALTER TABLE `surat`
-  MODIFY `id_surat` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_surat` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `user`
@@ -187,10 +222,11 @@ ALTER TABLE `user`
 --
 
 --
--- Constraints for table `surat`
+-- Constraints for table `laporan`
 --
-ALTER TABLE `surat`
-  ADD CONSTRAINT `surat_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`);
+ALTER TABLE `laporan`
+  ADD CONSTRAINT `laporan_ibfk_1` FOREIGN KEY (`id_surat`) REFERENCES `surat` (`id_surat`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `laporan_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
