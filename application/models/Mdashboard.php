@@ -54,10 +54,23 @@
         }
 
         public function getsurat(){
-            $this->db->join('user', 'user.id_user=surat.id_user');
             return $this->db->get('surat');
         }
 
+        public function addjsurat($data){
+            $param = array(
+                'jenis_surat' => $data['jenis_surat']
+            );
+            $this->db->insert('surat', $param);
+        }
+
+        public function editjsurat($data){
+            $param = array(
+                'jenis_surat' => $data['jenis_surat']
+            );
+            $this->db->update('surat', $param, array('id_surat'=>$data['id_surat']));
+        }
+        
         public function delsurat($id){
             $this->db->where('id_surat', $id);
             $this->db->delete('surat');
@@ -98,12 +111,15 @@
             $this->db->delete('user');
         }
 
-        public function ubah_status($id){
-            $param = array(
-                'status' => '1'
-            );
+        public function getlaporan(){
+            $this->db->join('user', 'user.id_user=laporan.id_user');
+            $this->db->join('surat', 'surat.id_surat=laporan.id_surat');
+            return $this->db->get('laporan');
+        }
 
-            $this->db->update('surat', $param, array('id_surat'=>$id));
+        public function dellaporan($id){
+            $this->db->where('id_laporan', $id);
+            $this->db->delete('laporan');
         }
     }
 ?>

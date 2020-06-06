@@ -13,23 +13,47 @@
 	</section>
 
 	<!-- Main content -->
-	<!-- Main content -->
 	<section class="content">
 		<div class="row">
 			<div class="col-xs-12">
 				<div class="box">
+					<div class="box-header">
+						<button class="btn btn-primary" data-toggle="modal" data-target="#modal-default">Tambah</button>
+						<!--Tambah-->
+						<div class="modal fade" id="modal-default">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true">&times;</span></button>
+										<h4 class="modal-title">Tambah Jenis Surat</h4>
+									</div>
+									<div class="modal-body">
+										<form action="<?=base_url('dashboard/add_jsurat')?>" method="post">
+											<div class="form-group">
+												<label>Jenis Surat</label>
+												<input type="text" class="form-control" name="jenis_surat">
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-default pull-left"
+													data-dismiss="modal">Close</button>
+												<input type="submit" class="btn btn-primary" name="tambah"
+													value="Tambah">
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- /.Tambah -->
+					</div>
 					<!-- /.box-header -->
 					<div class="box-body">
 						<table id="example1" class="table table-bordered table-striped">
 							<thead>
 								<tr>
 									<th>No</th>
-									<th>Nama Pemohon</th>
-									<th>Email</th>
 									<th>Jenis Surat</th>
-									<th>Pesan</th>
-									<th>Tgl Permohonan</th>
-									<th>Status</th>
 									<th></th>
 								</tr>
 							</thead>
@@ -40,29 +64,44 @@
 								?>
 								<tr>
 									<td><?=$no++?></td>
-									<td><?=$data->nama?></td>
-									<td><?=$data->email?></td>
-									<td><?=$data->j_surat?></td>
-									<td><?=$data->pesan?></td>
-									<td><?=date('d M Y', strtotime($data->tgl))?></td>
+									<td><?=$data->jenis_surat?></td>
 									<td>
-										<?php
-											if($data->status == 1){
-										?>
-											<a href="#"><button class="btn btn-success">Sudah Jadi</button></a>
-										<?php
-											}else{
-										?>
-											<a href="<?=base_url('dashboard/ubahstatus/'.$data->id_surat)?>"><button class="btn btn-danger">Belum Jadi</button></a>
-										<?php
-											}
-										?>
-									</td>
-									<td>
-										<a onclick="return confirm('Data akan dihapus!')" href="<?=base_url('dashboard/del_surat/'.$data->id_surat)?>"><button class="btn btn-danger"><i
-													class="fa fa-trash"></i></button></a>
+										<button class="btn btn-primary" data-toggle="modal"
+											data-target="#edit<?=$data->id_surat?>"><i class="fa fa-edit"></i></button>
+										<a onclick="return confirm('Data akan dihapus!')"
+											href="<?=base_url('dashboard/del_surat/'.$data->id_surat)?>"><button
+												class="btn btn-danger"><i class="fa fa-trash"></i></button></a>
 									</td>
 								</tr>
+								<!--Edit-->
+								<div class="modal fade" id="edit<?=$data->id_surat?>">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal"
+													aria-label="Close">
+													<span aria-hidden="true">&times;</span></button>
+												<h4 class="modal-title">Edit Jenis Surat</h4>
+											</div>
+											<div class="modal-body">
+												<form action="<?=base_url('dashboard/edit_jsurat')?>" method="post">
+													<div class="form-group">
+														<label>Jenis Surat</label>
+														<input type="hidden" name="id_surat" value="<?=$data->id_surat?>">
+														<input type="text" class="form-control" value="<?=$data->jenis_surat?>" name="jenis_surat">
+													</div>
+													<div class="modal-footer">
+														<button type="button" class="btn btn-default pull-left"
+															data-dismiss="modal">Close</button>
+														<input type="submit" class="btn btn-primary" name="tambah"
+															value="Tambah">
+													</div>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- /.Edit -->
 								<?php } ?>
 							</tbody>
 						</table>

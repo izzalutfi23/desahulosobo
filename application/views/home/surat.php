@@ -32,11 +32,12 @@
 						<div class="col-sm-6">
 							<div class="form-group">
 								<select required name="j_surat" class="form-control">
-                                    <option value="sku">Surat Keterangan Usaha</option>
-                                    <option value="skm">Surat Keterangan Miskin</option>
-                                    <option value="sktm">Surat Keterangan Tidak Mampu</option>
-                                    <option value="skk">Surat Keterangan Kelahiran</option>
-                                </select>
+									<?php 
+										foreach($jsurat as $j){
+									?>
+                                    	<option value="<?=$j->id_surat?>"><?=$j->jenis_surat?></option>
+									<?php } ?>
+								</select>
 							</div>
 						</div>
                         <div class="col-12">
@@ -62,20 +63,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php
-                        $no=1;
-                        foreach($surat as $data){
-                    ?>
                         <tr>
-                            <td><?=$no++?></td>
-                            <td><?=$data->nama?></td>
-                            <td><?=$data->email?></td>
-                            <td><?=$data->j_surat?></td>
-                            <td>
-                                <?=($data->status == 1) ? '<a href="#"><button class="btn btn-success">Sudah Jadi</button></a>' : '<a href="#"><button class="btn btn-danger">Belum Jadi</button></a>';?>
-                            </td>
+                            <td>oke</td>
+                            <td>oke</td>
+                            <td>oke</td>
+                            <td>oke</td>
+                            <td>okeoke</td>
                         </tr>
-                        <?php } ?>
                     </tbody>
                 </table>
 			</div>

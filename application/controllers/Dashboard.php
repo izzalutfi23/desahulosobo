@@ -74,8 +74,15 @@ class Dashboard extends CI_Controller {
         $this->load->view('admin/_footer');
     }
 
-    public function ubahstatus($id){
-        $this->Mdashboard->ubah_status($id);
+    public function add_jsurat(){
+        $input = $this->input->post(NULL, false);
+        $this->Mdashboard->addjsurat($input);
+        redirect('dashboard/surat');
+    }
+
+    public function edit_jsurat(){
+        $input = $this->input->post(NULL, false);
+        $this->Mdashboard->editjsurat($input);
         redirect('dashboard/surat');
     }
 
@@ -193,5 +200,23 @@ class Dashboard extends CI_Controller {
     public function del_user($id_user){
         $this->Mdashboard->deluser($id_user);
         redirect('dashboard/user');
+    }
+
+    public function laporan(){
+        $nama = $this->Mdashboard->getnama($this->session->userdata('user'));
+        $laporan = $this->Mdashboard->getlaporan()->result();
+        $data = array(
+            'title' => 'User | Admin',
+            'nama' => $nama,
+            'laporan' => $laporan
+        );
+        $this->load->view('admin/_header', $data);
+        $this->load->view('admin/laporan');
+        $this->load->view('admin/_footer');
+    }
+
+    public function del_laporan($id){
+        $this->Mdashboard->dellaporan($id);
+        redirect('dashboard/laporan');
     }
 }

@@ -212,11 +212,11 @@ class Home extends CI_Controller {
     public function surat()
 	{
         $nama = $this->Mhome->getnama($this->session->userdata('user'));
-        $surat = $this->Mhome->getsurat($nama->id_user);
+        $jsurat = $this->Mhome->getjsurat()->result();
         $data = array(
             'nama' => $nama,
             'title' => 'Permohonan Surat | Desa Hulosobo',
-            'surat' => $surat
+            'jsurat' => $jsurat
         );
         $this->load->view('home/_header', $data);
         $this->load->view('home/surat');

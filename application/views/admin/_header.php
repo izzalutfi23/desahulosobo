@@ -118,6 +118,11 @@
 							<i class="fa fa-user"></i> <span>User</span>
 						</a>
 					</li>
+					<li class="<?=($this->uri->segment(2) == 'laporan') ? 'active treeview' : ''?>">
+						<a href="<?=base_url('dashboard/laporan')?>">
+							<i class="fa fa-sticky-note"></i> <span>Laporan</span>
+						</a>
+					</li>
 				</ul>
 			</section>
 			<!-- /.sidebar -->

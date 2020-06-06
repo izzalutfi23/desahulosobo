@@ -51,9 +51,8 @@
             $this->db->insert('surat', $param);
         }
 
-        public function getsurat($id){
-            $this->db->join('user', 'user.id_user=surat.id_user');
-            return $this->db->get_where('surat', array('surat.id_user'=>$id))->result();
+        public function getjsurat(){
+            return $this->db->get('surat');
         }
     }
 ?>
