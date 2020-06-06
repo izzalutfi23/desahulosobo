@@ -213,19 +213,21 @@ class Home extends CI_Controller {
 	{
         $nama = $this->Mhome->getnama($this->session->userdata('user'));
         $jsurat = $this->Mhome->getjsurat()->result();
+        $laporan = $this->Mhome->getlaporan($nama->id_user);
         $data = array(
             'nama' => $nama,
             'title' => 'Permohonan Surat | Desa Hulosobo',
-            'jsurat' => $jsurat
+            'jsurat' => $jsurat,
+            'laporan' => $laporan->result()
         );
         $this->load->view('home/_header', $data);
         $this->load->view('home/surat');
     }
 
-    public function add_surat(){
+    public function add_laporan(){
         $input = $this->input->post(NULL, false);
-        $this->Mhome->addsurat($input);
-        $this->session->set_flashdata('surat', 'Permohonan surat berhasil dikirim');
+        $this->Mhome->addlaporan($input);
+        $this->session->set_flashdata('surat', 'Permohonan surat berhasil dibuat, silahkan download dengan klik tombol download dibawah!');
         redirect('home/surat');
     }
 }

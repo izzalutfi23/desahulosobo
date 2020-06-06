@@ -16,7 +16,7 @@
 				<h2 class="contact-title">Permohonan Surat</h2>
 			</div>
 			<div class="col-lg-8 mb-5">
-				<form class="form-contact contact_form" action="<?=base_url('home/add_surat')?>" method="post">
+				<form class="form-contact contact_form" action="<?=base_url('home/add_laporan')?>" method="post">
 					<div class="row">
                     <div class="col-12">
 							<div class="form-group">
@@ -31,7 +31,7 @@
 						</div>
 						<div class="col-sm-6">
 							<div class="form-group">
-								<select required name="j_surat" class="form-control">
+								<select required name="id_surat" class="form-control">
 									<?php 
 										foreach($jsurat as $j){
 									?>
@@ -57,19 +57,26 @@
                         <tr>
                             <th>No</th>
                             <th>Nama</th>
+                            <th>Jenis Surat</th>
                             <th>Email</th>
-                            <th>Jenis Permohonan</th>
-                            <th>Status</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
+						<?php
+							$no=1; 
+							foreach($laporan as $l){
+						?>
                         <tr>
-                            <td>oke</td>
-                            <td>oke</td>
-                            <td>oke</td>
-                            <td>oke</td>
-                            <td>okeoke</td>
+                            <td><?=$no++?></td>
+                            <td><?=$l->nama?></td>
+                            <td><?=$l->jenis_surat?></td>
+                            <td><?=$l->email?></td>
+                            <td>
+								<a href="#"><button class="btn btn-success">Download</button></a>
+							</td>
                         </tr>
+						<?php }?>
                     </tbody>
                 </table>
 			</div>

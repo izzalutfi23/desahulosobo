@@ -39,16 +39,22 @@
             return $this->db->get('penduduk');
         }
 
-        public function addsurat($data){
+        public function addlaporan($data){
             $param = array(
                 'id_user' => $data['id_user'],
                 'email' => $data['email'],
-                'j_surat' => $data['j_surat'],
+                'id_surat' => $data['id_surat'],
                 'pesan' => $data['pesan'],
-                'status' => '0',
                 'tgl' => date('Y-m-d')
             );
-            $this->db->insert('surat', $param);
+            $this->db->insert('laporan', $param);
+        }
+
+        public function getlaporan($id){
+            $this->db->where('laporan.id_user', $id);
+            $this->db->join('user', 'user.id_user=laporan.id_user');
+            $this->db->join('surat', 'surat.id_surat=laporan.id_surat');
+            return $this->db->get('laporan');
         }
 
         public function getjsurat(){
