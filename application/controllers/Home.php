@@ -241,9 +241,9 @@ class Home extends CI_Controller {
         );
     
         $this->load->library('pdf');
-    
+        $this->pdf->set_option('isRemoteEnabled', TRUE);
         $this->pdf->setPaper('A4', 'potrait');
-        $this->pdf->filename = "laporan-petanikode.pdf";
+        $this->pdf->filename = "surat.pdf";
         $this->pdf->load_view('home/laporan_pdf', $data);
     }
 }
