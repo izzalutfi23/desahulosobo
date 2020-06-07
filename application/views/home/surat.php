@@ -73,7 +73,7 @@
                             <td><?=$l->jenis_surat?></td>
                             <td><?=$l->email?></td>
                             <td>
-								<a href="#"><button class="btn btn-success">Download</button></a>
+								<a href="<?=base_url('home/laporan_pdf')?>" target="_blank"><button class="button button-success boxed-btn">Download</button></a>
 							</td>
                         </tr>
 						<?php }?>
