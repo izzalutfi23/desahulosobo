@@ -60,5 +60,11 @@
         public function getjsurat(){
             return $this->db->get('surat');
         }
+
+        public function getlap($id){
+            $this->db->join('user', 'user.id_user=laporan.id_user');
+            $this->db->join('surat', 'surat.id_surat=laporan.id_surat');
+            return $this->db->get_where('laporan', array('laporan.id_laporan'=>$id));
+        }
     }
 ?>

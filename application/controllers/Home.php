@@ -231,13 +231,11 @@ class Home extends CI_Controller {
         redirect('home/surat');
     }
 
-    public function laporan_pdf(){
+    public function laporan_pdf($id){
 
+        $laporan = $this->Mhome->getlap($id)->row();
         $data = array(
-            "dataku" => array(
-                "nama" => "Petani Kode",
-                "url" => "http://petanikode.com"
-            )
+            'lap'=>$laporan
         );
     
         $this->load->library('pdf');
